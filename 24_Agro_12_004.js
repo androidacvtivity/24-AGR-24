@@ -85,9 +85,47 @@ function validatePhoneNumber(phone) {
         });
     }
 }
-
-
 //-------------------------------------------------------------------------------------------
+
+function validate_CUATM_FILIAL(values) {
+    var seenCUATM = new Set(); // Set to track duplicates
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = String(values.CAP_CUATM_FILIAL[j] || "").trim(); // Safely handle undefined or null
+        var CAP_NUM_FILIAL = Number(values.CAP_NUM_FILIAL[j]);
+
+        // Check if CAP_NUM_FILIAL exists but CAP_CUATM_FILIAL is missing
+        if (CAP_NUM_FILIAL && CAP_CUATM_FILIAL === "") {
+            webform.errors.push({
+                'fieldName': 'CAP_CUATM_FILIAL',
+                'index': j,
+                'weight': 20,
+                'msg': Drupal.t('Raion: @CAP_NUM_FILIAL - Cod eroare: 45-020.  - Dacă există Nr. [@CAP_NUM_FILIAL], atunci trebuie să existe și cod CUATM.', {
+                    '@CAP_NUM_FILIAL': CAP_NUM_FILIAL,
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+
+        // Check for duplicate CAP_CUATM_FILIAL values
+        if (CAP_CUATM_FILIAL) {
+            if (seenCUATM.has(CAP_CUATM_FILIAL)) {
+                webform.errors.push({
+                    'fieldName': 'CAP_CUATM_FILIAL',
+                    'index': j,
+                    'weight': 10,
+                    'msg': Drupal.t('Codul CUATM: @CAP_CUATM_FILIAL este duplicat. Fiecare cod CUATM trebuie să fie unic.', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                    })
+                });
+            } else {
+                seenCUATM.add(CAP_CUATM_FILIAL);
+            }
+        }
+    }
+}
+
+//------------------------------------------------------------------------------------------------
 
 function getErrorMessage(errorCode) {
     return Drupal.t('Error code: @error_code', { '@error_code': errorCode });
