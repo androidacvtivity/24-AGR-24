@@ -27,6 +27,7 @@ CAP21_R23_C1 = CAP22_R11_C1
 
 Tab. 2.1 rd. 26 col. =Tab. 2.1 (rd.27 + rd.28 + rd.29) - Done
 
+
 Tab. 2.1 rd. 30 col. =Tab. 2.1 (rd.31 + rd.32)
 
 Tab. 2.1 rd. 32 col. = Tab. 2.1 (rd.33+ rd.35)
@@ -39,7 +40,7 @@ Tab. 2.1 rd. 36 col.1 = Tab. 2.1 (rd.24+ rd.25 + rd.26 + rd.30)
 
 Tab. 2.1 col.1 rd. 36 = Tab. 2.2 col. 4 rd. 11
 
-Tab. 2.1 rd. 37 col. = Tab.2.1 (rd.38 + rd.41 + rd. 42) de  Introdus automsuma
+Tab. 2.1 rd. 37 col. = Tab.2.1 (rd.38 + rd.41 + rd. 42) de  Introdus automsuma - Done
 
 Tab. 2.1 col.1 rd. 37 = Tab. 2.2 col. 7 rd.11
 
