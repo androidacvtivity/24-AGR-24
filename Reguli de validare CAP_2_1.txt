@@ -1,0 +1,71 @@
+Tab. 2.1 rd.1 col.1 = Tab. 2.1 rd.2 + rd.3 -Done
+
+Tab. 2.1 rd.3 col.1 = Tab. 2.1 rd.4 + rd.5 -Done
+
+Tab. 2.1 rd. 6 col. 1 = Tab. 2.1 rd.7 + rd.8 - Done 
+
+Tab. 2.1 rd. 8 col. 1 = Tab. 2.1 rd.9 + rd.10 - Done
+
+Tab. 2.1 rd. 11 col. 1 = Tab. 2.1 rd.12 + rd.16 - Done
+
+Tab. 2.1 rd. 12 col.1 = Tab. 2.1 rd.13 + rd.14 + rd.15 - Done
+
+Tab. 2.1 col.1 rd.15 = Tab. 2.2 col.3 rd. 11 - Done
+
+Tab. 2.1 rd. 16 col. 1 =T ab. 2.1 rd.17 + rd.20 nu calculeaza  corect
+
+Tab. 2.1 rd. 17 col.1 =Tab. 2.1 rd.18 + rd.19
+
+Tab. 2.1 rd. 20 col.1 = Tab. 2.1 rd.21 + rd.22
+
+Tab. 2.1 rd. 23 col. 1 = Tab. 2.1 (rd.1 + rd.6 + rd.11) nu calculeaza corect
+
+Tab. 2.1 col.1 rd.23 = Tab. 2.2 col.1 rd. 11 -(
+    Creaza o validare  similar ca  exemplele care  de ja le cunosti 
+CAP21_R23_C1 = CAP22_R11_C1
+ - Daca nu este egal sa arate eroare )
+
+Tab. 2.1 rd. 26 col. =Tab. 2.1 (rd.27 + rd.28 + rd.29) - Done
+
+Tab. 2.1 rd. 30 col. =Tab. 2.1 (rd.31 + rd.32)
+
+Tab. 2.1 rd. 32 col. = Tab. 2.1 (rd.33+ rd.35)
+
+Tab. 2.1 rd.35 ≤ Tab. 2.1 rd. 34
+CAP21_R35_C1 ≤  CAP21_R34_C1
+
+
+Tab. 2.1 rd. 36 col.1 = Tab. 2.1 (rd.24+ rd.25 + rd.26 + rd.30)
+
+Tab. 2.1 col.1 rd. 36 = Tab. 2.2 col. 4 rd. 11
+
+Tab. 2.1 rd. 37 col. = Tab.2.1 (rd.38 + rd.41 + rd. 42) de  Introdus automsuma
+
+Tab. 2.1 col.1 rd. 37 = Tab. 2.2 col. 7 rd.11
+
+Tab. 2.1 rd. 38 col. = Tab. 2.1 (rd.39 + rd.40)
+
+Tab. 2.1 rd. 44 col. = Tab.2.1 (rd.45 + rd.48)
+
+Tab.2.1 rd. 45 col. = Tab..2.1 (rd.46 + rd.47) nu calculeza corect
+
+Tab. 2.1 rd. 49 col. = Tab..2.1 (rd.37 + rd.44) de  Introdus automsuma
+
+Tab. 2.1 col.1 rd. 49 = Tab. 2.2 col. 6 rd.11
+
+Tab. 2.1 rd.51 ≤ Tab. 2.1 rd. 50
+
+Tab. 2.1 col.1 rd.50 = Tab. 2.2 col.9 rd.11
+
+Tab. 2.1 col.1 rd.52 = Tab.2.2 col.11 rd.11
+
+Tab. 2.1 rd.54 ≤ Tab. 2.1 rd.53
+
+Tab. 2.1 rd.53 COL1 ≥ Tab.2.1 Rd.54 COL1
+
+Tab. 2.1, Daca rd.54 COL1 ≠ 0, atunci tab 1.1 rd.21 COL1 ≠ 0
+
+
+Creaza o validare  similar ca  exemplele care  de ja le cunosti 
+CAP21_R15_C1 = CAP22_R11_C3
+ - Daca nu este egal sa arate eroare 
