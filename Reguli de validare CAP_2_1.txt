@@ -43,8 +43,9 @@ Tab. 2.1 col.1 rd. 36 = Tab. 2.2 col. 4 rd. 11
 Tab. 2.1 rd. 37 col. = Tab.2.1 (rd.38 + rd.41 + rd. 42) de  Introdus automsuma - Done
 
 Tab. 2.1 col.1 rd. 37 = Tab. 2.2 col. 7 rd.11
+CAP21_R37_C1 =  CAP21_R37_C1
 
-Tab. 2.1 rd. 38 col. = Tab. 2.1 (rd.39 + rd.40)
+Tab. 2.1 rd. 38 col. = Tab. 2.1 (rd.39 + rd.40) - Done
 
 Tab. 2.1 rd. 44 col. = Tab.2.1 (rd.45 + rd.48)
 
