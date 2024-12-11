@@ -38,6 +38,10 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
     validate_CAP21_R35_C1_F(values);
     validate_CAP21_R37_C1(values);
     validate_CAP21_R37_C1_F(values);
+    validate_CAP21_R49_C1(values);
+    validate_CAP21_R49_C1_F(values);
+    validate_CAP21_R51_C1_F(values);
+    validate_CAP21_R51_C1(values);
 
 
 
@@ -53,6 +57,55 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
     webform.validatorsStatus['agro24_24'] = 1;
     validateWebform();
 }
+
+
+//------------------------------------------------------------------------------------------------
+
+// Validation function for CAP21: CAP21_R51_C1 ≤ CAP21_R50_C1
+function validate_CAP21_R51_C1(values) {
+    var col1 = "C1";
+
+    var CAP21_R51 = !isNaN(Number(values["CAP21_R51_" + col1])) ? Number(values["CAP21_R51_" + col1]) : 0;
+    var CAP21_R50 = !isNaN(Number(values["CAP21_R50_" + col1])) ? Number(values["CAP21_R50_" + col1]) : 0;
+
+    if (CAP21_R51 > CAP21_R50) {
+        webform.errors.push({
+            'fieldName': 'CAP21_R51_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-006. Valoarea CAP.2.1 Rând.51 col.1 trebuie să fie ≤ CAP.2.1 Rând.50 col.1. Valoarea găsită: ' + CAP21_R51 + '---- ' + CAP21_R50)
+        });
+    }
+}
+
+
+// Validation function for CAP21 FILIAL: CAP21_R51_C1 ≤ CAP21_R50_C1
+function validate_CAP21_R51_C1_F(values) {
+    var col1 = "C1";
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        var CAP21_R51_F = values["CAP21_R51_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R51_" + col1 + "_FILIAL"][j]))
+            ? Number(values["CAP21_R51_" + col1 + "_FILIAL"][j])
+            : 0;
+        var CAP21_R50_F = values["CAP21_R50_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R50_" + col1 + "_FILIAL"][j]))
+            ? Number(values["CAP21_R50_" + col1 + "_FILIAL"][j])
+            : 0;
+
+        if (CAP21_R51_F > CAP21_R50_F) {
+            webform.errors.push({
+                'fieldName': 'CAP21_R51_' + col1 + '_FILIAL',
+                'index': j,
+                'weight': 19,
+                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-006-F. Valoarea CAP.2.1 Rând.51 col.1 trebuie să fie ≤ CAP.2.1 Rând.50 col.1. Valoarea găsită: ' + CAP21_R51_F + '--- ' + CAP21_R50_F, {
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+    }
+}
+
+
 
 //-----------------------------------------------------------------------------------------------
 
