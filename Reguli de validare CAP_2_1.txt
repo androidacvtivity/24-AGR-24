@@ -89,6 +89,7 @@ CAP21_R54_C1 ≤  CAP21_R53_C1
 
 Tab. 2.1, Daca rd.54 COL1 ≠ 0, atunci tab 1.1 rd.21 COL1 ≠ 0
 
+Daca CAP21_R54_C1 ≠ 0, atunci CAP111_R21_C1 ≠ 0
 
 Creaza o validare  similar ca  exemplele care  de ja le cunosti 
 CAP21_R15_C1 = CAP22_R11_C3
