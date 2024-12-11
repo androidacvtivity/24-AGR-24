@@ -53,7 +53,12 @@ Tab.2.1 rd. 45 col. = Tab..2.1 (rd.46 + rd.47) nu calculeza corect
 
 Tab. 2.1 rd. 49 col. = Tab..2.1 (rd.37 + rd.44) de  Introdus automsuma
 
-Tab. 2.1 col.1 rd. 49 = Tab. 2.2 col. 6 rd.11
+
+--------------------
+Tab. 2.1 col.1 rd. 49 = Tab. 2.2 col. 6 rd.11  -- 
+
+CAP21_R49_C1 = CAP22_R11_C6
+----------------------
 
 Tab. 2.1 rd.51 ≤ Tab. 2.1 rd. 50
 
