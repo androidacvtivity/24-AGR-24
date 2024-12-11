@@ -43,7 +43,13 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
     validate_CAP21_R51_C1_F(values);
     validate_CAP21_R51_C1(values);
 
+    validate_CAP21_R50_C1(values);
+    validate_CAP21_R52_C1(values);
+    validate_CAP21_R54_C1(values);
 
+    validate_CAP21_R50_C1_F(values);
+    validate_CAP21_R52_C1_F(values);
+    validate_CAP21_R54_C1_F(values);
 
     //Sort warnings & errors
     webform.warnings.sort(function (a, b) {
@@ -56,6 +62,143 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
 
     webform.validatorsStatus['agro24_24'] = 1;
     validateWebform();
+}
+
+//---------------------------------------------------------------------------------------------
+
+// Validation function for CAP21 and CAP22: CAP21_R50_C1 = CAP22_R11_C9
+function validate_CAP21_R50_C1(values) {
+    var col1 = "C1";
+    var col9 = "C9";
+
+    var CAP21_R50 = !isNaN(Number(values["CAP21_R50_" + col1])) ? Number(values["CAP21_R50_" + col1]) : 0;
+    var CAP22_R11_C9 = !isNaN(Number(values["CAP22_R11_" + col9])) ? Number(values["CAP22_R11_" + col9]) : 0;
+
+    if (CAP21_R50 !== CAP22_R11_C9) {
+        webform.errors.push({
+            'fieldName': 'CAP21_R50_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-007. Valoarea CAP.2.1 Rând.50 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.9. Valoarea găsită: ' + CAP21_R50 + '------' + CAP22_R11_C9)
+        });
+    }
+}
+
+// Validation function for CAP21 and CAP22: CAP21_R52_C1 = CAP22_R11_C11
+function validate_CAP21_R52_C1(values) {
+    var col1 = "C1";
+    var col11 = "C11";
+
+    var CAP21_R52 = !isNaN(Number(values["CAP21_R52_" + col1])) ? Number(values["CAP21_R52_" + col1]) : 0;
+    var CAP22_R11_C11 = !isNaN(Number(values["CAP22_R11_" + col11])) ? Number(values["CAP22_R11_" + col11]) : 0;
+
+    if (CAP21_R52 !== CAP22_R11_C11) {
+        webform.errors.push({
+            'fieldName': 'CAP21_R52_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-008. Valoarea CAP.2.1 Rând.52 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.11. Valoarea găsită: ' + CAP21_R52 + '----- ' + CAP22_R11_C11)
+        });
+    }
+}
+
+// Validation function for CAP21: CAP21_R54_C1 ≤ CAP21_R53_C1
+function validate_CAP21_R54_C1(values) {
+    var col1 = "C1";
+
+    var CAP21_R54 = !isNaN(Number(values["CAP21_R54_" + col1])) ? Number(values["CAP21_R54_" + col1]) : 0;
+    var CAP21_R53 = !isNaN(Number(values["CAP21_R53_" + col1])) ? Number(values["CAP21_R53_" + col1]) : 0;
+
+    if (CAP21_R54 > CAP21_R53) {
+        webform.errors.push({
+            'fieldName': 'CAP21_R54_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-009. Valoarea CAP.2.1 Rând.54 col.1 trebuie să fie ≤ CAP.2.1 Rând.53 col.1. Valoarea găsită: ' + CAP21_R54 + '----' + CAP21_R53)
+        });
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------
+
+// Validation function for CAP21 and CAP22 FILIAL: CAP21_R50_C1 = CAP22_R11_C9
+function validate_CAP21_R50_C1_F(values) {
+    var col1 = "C1";
+    var col9 = "C9";
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        var CAP21_R50_F = values["CAP21_R50_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R50_" + col1 + "_FILIAL"][j]))
+            ? Number(values["CAP21_R50_" + col1 + "_FILIAL"][j])
+            : 0;
+        var CAP22_R11_C9_F = values["CAP22_R11_" + col9 + "_FILIAL"] && !isNaN(Number(values["CAP22_R11_" + col9 + "_FILIAL"][j]))
+            ? Number(values["CAP22_R11_" + col9 + "_FILIAL"][j])
+            : 0;
+
+        if (CAP21_R50_F !== CAP22_R11_C9_F) {
+            webform.errors.push({
+                'fieldName': 'CAP21_R50_' + col1 + '_FILIAL',
+                'index': j,
+                'weight': 19,
+                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-007-F. Valoarea CAP.2.1 Rând.50 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.9. Valoarea găsită: ' + CAP21_R50_F + '---' + CAP22_R11_C9_F, {
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+    }
+}
+
+// Validation function for CAP21 and CAP22 FILIAL: CAP21_R52_C1 = CAP22_R11_C11
+function validate_CAP21_R52_C1_F(values) {
+    var col1 = "C1";
+    var col11 = "C11";
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        var CAP21_R52_F = values["CAP21_R52_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R52_" + col1 + "_FILIAL"][j]))
+            ? Number(values["CAP21_R52_" + col1 + "_FILIAL"][j])
+            : 0;
+        var CAP22_R11_C11_F = values["CAP22_R11_" + col11 + "_FILIAL"] && !isNaN(Number(values["CAP22_R11_" + col11 + "_FILIAL"][j]))
+            ? Number(values["CAP22_R11_" + col11 + "_FILIAL"][j])
+            : 0;
+
+        if (CAP21_R52_F !== CAP22_R11_C11_F) {
+            webform.errors.push({
+                'fieldName': 'CAP21_R52_' + col1 + '_FILIAL',
+                'index': j,
+                'weight': 19,
+                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-008-F. Valoarea CAP21 Rând.52 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.11. Valoarea găsită: ' + CAP21_R52_F + '--- ' + CAP22_R11_C11_F, {
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+    }
+}
+
+// Validation function for CAP21 FILIAL: CAP21_R54_C1 ≤ CAP21_R53_C1
+function validate_CAP21_R54_C1_F(values) {
+    var col1 = "C1";
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        var CAP21_R54_F = values["CAP21_R54_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R54_" + col1 + "_FILIAL"][j]))
+            ? Number(values["CAP21_R54_" + col1 + "_FILIAL"][j])
+            : 0;
+        var CAP21_R53_F = values["CAP21_R53_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R53_" + col1 + "_FILIAL"][j]))
+            ? Number(values["CAP21_R53_" + col1 + "_FILIAL"][j])
+            : 0;
+
+        if (CAP21_R54_F > CAP21_R53_F) {
+            webform.errors.push({
+                'fieldName': 'CAP21_R54_' + col1 + '_FILIAL',
+                'index': j,
+                'weight': 19,
+                'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-009-F. Valoarea CAP.2.1 Rând.54 col.1 trebuie să fie ≤ CAP.2.1 Rând.53 col.1. Valoarea găsită: ' + CAP21_R54_F + '---' + CAP21_R53_F, {
+                    '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                })
+            });
+        }
+    }
 }
 
 
