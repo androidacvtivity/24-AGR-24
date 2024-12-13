@@ -94,3 +94,13 @@ Daca CAP21_R54_C1 ≠ 0, atunci CAP111_R21_C1 ≠ 0
 Creaza o validare  similar ca  exemplele care  de ja le cunosti 
 CAP21_R15_C1 = CAP22_R11_C3
  - Daca nu este egal sa arate eroare 
+
+
+ 
+[CAP2_R7500_C1]+[CAP2_R7400_C1]+[CAP2_R7300_C1] + [CAP2_R7200_C1] + [CAP2_R7100_C1]= [CAP1_R5000_C1]
+
+Rand 5000 col.1= Rand 5100 col.1+ Rand 7100 col.1+ Rand 7200 col.1+ Rand 7300 col.1+ Rand 7400 col.1+ Rand 7500 col.1
+
+
+27-004	Tab. 2.1 col.1 rd. 36 = Tab. 2.2 col. 4 rd. 11
+        CAP21_R36_C1 = CAP22_R11_C4 
