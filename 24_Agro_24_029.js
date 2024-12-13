@@ -814,6 +814,7 @@ function validate33_001_F(values) {
 //--------------------------------------------------------------------------------------------------------
 
 
+//--Modifica aceste functii sa afiseze si invers 
 function validate33_024(values) {
     var columns = [1, 3, 4, 5, 6, 8];
 
@@ -823,12 +824,27 @@ function validate33_024(values) {
         var CAP1_R1_C = !isNaN(Number(values["CAP11_R1_C" + col])) ? Number(values["CAP11_R1_C" + col]) : 0;
         var CAP1_R2_C = !isNaN(Number(values["CAP11_R2_C" + col])) ? Number(values["CAP11_R2_C" + col]) : 0;
 
+        // Dacă Rând.1 ≠ 0 și Rând.2 = 0
         if (CAP1_R1_C !== 0 && CAP1_R2_C === 0) {
             webform.errors.push({
                 'fieldName': 'CAP11_R2_C' + col,
                 'weight': 19,
                 'index': col,
-                'msg': Drupal.t('Cod eroare: 27-060. [@col] - Tab.1.1, rd.1 pe COL (@col), COL(1, 3, 4, 5, 6, 8) ≠ 0 atunci Rînd.(2) COL(1, 3, 4, 5, 6, 8) ≠ 0 , @CAP1_R1_C ≠ @CAP1_R2_C', {
+                'msg': Drupal.t('Cod eroare: 27-060. [@col] - Tab.1.1, Rând.1 pe COL (@col) ≠ 0, atunci Rând.2 COL (@col) trebuie să fie ≠ 0. Valori: R1(@CAP1_R1_C), R2(@CAP1_R2_C)', {
+                    '@col': col,
+                    '@CAP1_R1_C': CAP1_R1_C,
+                    '@CAP1_R2_C': CAP1_R2_C
+                })
+            });
+        }
+
+        // Dacă Rând.1 = 0 și Rând.2 ≠ 0
+        if (CAP1_R1_C === 0 && CAP1_R2_C !== 0) {
+            webform.errors.push({
+                'fieldName': 'CAP11_R1_C' + col,
+                'weight': 19,
+                'index': col,
+                'msg': Drupal.t('Cod eroare: 27-060. [@col] - Tab.1.1, Rând.2 pe COL (@col) ≠ 0, atunci Rând.1 COL (@col) trebuie să fie ≠ 0. Valori: R1(@CAP1_R1_C), R2(@CAP1_R2_C)', {
                     '@col': col,
                     '@CAP1_R1_C': CAP1_R1_C,
                     '@CAP1_R2_C': CAP1_R2_C
@@ -840,8 +856,61 @@ function validate33_024(values) {
 
 
 
-//---------------------------------------------------------------------------------------------------------
+function validate33_024_F(values) {
+    var columns = [1, 3, 4, 5, 6, 8];
 
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        for (var i = 0; i < columns.length; i++) {
+            var col = columns[i];
+
+            var R1_C = 0, R2_C = 0;
+
+            // Check if properties exist before accessing them
+            if (values["CAP11_R1_C" + col + "_FILIAL"] && !isNaN(Number(values["CAP11_R1_C" + col + "_FILIAL"][j]))) {
+                R1_C = Number(values["CAP11_R1_C" + col + "_FILIAL"][j]);
+            }
+
+            if (values["CAP11_R2_C" + col + "_FILIAL"] && !isNaN(Number(values["CAP11_R2_C" + col + "_FILIAL"][j]))) {
+                R2_C = Number(values["CAP11_R2_C" + col + "_FILIAL"][j]);
+            }
+
+            // Dacă Rând.1 ≠ 0 și Rând.2 = 0
+            if (R1_C !== 0 && R2_C === 0) {
+                webform.errors.push({
+                    'fieldName': 'CAP11_R2_C' + col + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-060-F. [@col_FILIAL] - Dacă Rând.(1) COL(@col_FILIAL) ≠ 0, atunci Rând.(2) COL(@col_FILIAL) trebuie să fie ≠ 0. Valori: R1(@R1_C), R2(@R2_C)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@col_FILIAL': col,
+                        '@R1_C': R1_C,
+                        '@R2_C': R2_C
+                    })
+                });
+            }
+
+            // Dacă Rând.1 = 0 și Rând.2 ≠ 0
+            if (R1_C === 0 && R2_C !== 0) {
+                webform.errors.push({
+                    'fieldName': 'CAP11_R1_C' + col + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-060-F. [@col_FILIAL] - Dacă Rând.(2) COL(@col_FILIAL) ≠ 0, atunci Rând.(1) COL(@col_FILIAL) trebuie să fie ≠ 0. Valori: R1(@R1_C), R2(@R2_C)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@col_FILIAL': col,
+                        '@R1_C': R1_C,
+                        '@R2_C': R2_C
+                    })
+                });
+            }
+        }
+    }
+}
+
+//---------------------------------------------------------------------------------------------------------
+//Trebuie sa afiseze eroarea si 'invers' - ca in acest exenplu 
 function validate33_002(values) {
 
     for (var i = 1; i <= 6; i++) {
@@ -872,44 +941,6 @@ function validate33_002(values) {
 
 
 
-
-
-function validate33_024_F(values) {
-    var columns = [1, 3, 4, 5, 6, 8];
-
-    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
-        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
-
-        for (var i = 0; i < columns.length; i++) {
-            var col = columns[i];
-
-            var R1_C = 0, R2_C = 0;
-
-            // Check if properties exist before accessing them
-            if (values["CAP11_R1_C" + col + "_FILIAL"] && !isNaN(Number(values["CAP11_R1_C" + col + "_FILIAL"][j]))) {
-                R1_C = Number(values["CAP11_R1_C" + col + "_FILIAL"][j]);
-            }
-
-            if (values["CAP11_R2_C" + col + "_FILIAL"] && !isNaN(Number(values["CAP11_R2_C" + col + "_FILIAL"][j]))) {
-                R2_C = Number(values["CAP11_R2_C" + col + "_FILIAL"][j]);
-            }
-
-            if (R1_C !== 0 && R2_C === 0) {
-                webform.errors.push({
-                    'fieldName': 'CAP11_R2_C' + col + '_FILIAL',
-                    'index': j,
-                    'weight': 19,
-                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-060-F. [@col_FILIAL] - COL(@col_FILIAL), Dacă Rînd.(1) COL(1, 3, 4, 5, 6, 8) ≠ 0 atunci Rînd.(2) COL(1, 3, 4, 5, 6, 8) ≠ 0, @R1_C ≠ @R2_C', {
-                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
-                        '@col_FILIAL': col,
-                        '@R1_C': R1_C,
-                        '@R2_C': R2_C
-                    })
-                });
-            }
-        }
-    }
-}
 
 
 
