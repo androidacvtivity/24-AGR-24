@@ -55,6 +55,9 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
 
     validate_CAP21_R54_C1_to_CAP111_R21_C1(values);
     validate_CAP21_R54_C1_to_CAP111_R21_C1_F(values);
+    validate_CAP111_R2_to_R3(values);
+    validate_CAP111_R2_to_R3_F(values);
+
 
 
     //-----------------------------------------------
@@ -756,11 +759,11 @@ function validate33_001(values) {
             var result_33_001 = CAP1_R1_C + CAP1_R2_C - CAP1_R4_C;
 
             if (CAP1_R5_C !== result_33_001) {
-                webform.errors.push({
+                webform.warnings.push({
                     'fieldName': 'CAP11_R5_C' + i,
                     'weight': 19,
                     'index': i,
-                    'msg': Drupal.t('Cod eroare: 33-001. [@col] - Tab.1.1, rd.5 pe COL (@col), Rînd.(5) COL(1,3,4,5,6,8) = Rînd.(1+2-4)) COL(1,3,4,5,6,8), @CAP1_R5_C <> @result_33_001', { '@col': i, '@CAP1_R5_C': CAP1_R5_C, '@result_33_001': result_33_001 })
+                    'msg': Drupal.t('Cod eroare: 27-028. [@col] - Tab.1.1, rd.5 pe COL (@col), Rînd.(5) COL(1,3,4,5,6,8) = Rînd.(1+2-4)) COL(1,3,4,5,6,8), @CAP1_R5_C <> @result_33_001', { '@col': i, '@CAP1_R5_C': CAP1_R5_C, '@result_33_001': result_33_001 })
                 });
             }
         }
@@ -797,11 +800,11 @@ function validate33_001_F(values) {
             var result_33_001_F = R1_C + R2_C - R4_C;
 
             if (R5_C !== result_33_001_F) {
-                webform.errors.push({
+                webform.warnings.push({
                     'fieldName': 'CAP11_R5_C' + i + '_FILIAL',
                     'index': j,
                     'weight': 19,
-                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 33-001-F. [@col_FILIAL] - COL(@col_FILIAL), Rînd.(5) COL(1,3,4,5,6,8) = Rînd.(1+2-4) COL(1,3,4,5,6,8), @R5_C <> @result_33_001_F ', { '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL, '@col_FILIAL': i, '@R5_C': R5_C, '@result_33_001_F': result_33_001_F })
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-028-F. [@col_FILIAL] - COL(@col_FILIAL), Rînd.(5) COL(1,3,4,5,6,8) = Rînd.(1+2-4) COL(1,3,4,5,6,8), @R5_C <> @result_33_001_F ', { '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL, '@col_FILIAL': i, '@R5_C': R5_C, '@result_33_001_F': result_33_001_F })
                 });
             }
         }
@@ -825,7 +828,7 @@ function validate33_024(values) {
                 'fieldName': 'CAP11_R2_C' + col,
                 'weight': 19,
                 'index': col,
-                'msg': Drupal.t('Cod eroare: 33-024. [@col] - Tab.1.1, rd.1 pe COL (@col), COL(1, 3, 4, 5, 6, 8) ≠ 0 atunci Rînd.(2) COL(1, 3, 4, 5, 6, 8) ≠ 0 , @CAP1_R1_C ≠ @CAP1_R2_C', {
+                'msg': Drupal.t('Cod eroare: 27-060. [@col] - Tab.1.1, rd.1 pe COL (@col), COL(1, 3, 4, 5, 6, 8) ≠ 0 atunci Rînd.(2) COL(1, 3, 4, 5, 6, 8) ≠ 0 , @CAP1_R1_C ≠ @CAP1_R2_C', {
                     '@col': col,
                     '@CAP1_R1_C': CAP1_R1_C,
                     '@CAP1_R2_C': CAP1_R2_C
@@ -896,7 +899,7 @@ function validate33_024_F(values) {
                     'fieldName': 'CAP11_R2_C' + col + '_FILIAL',
                     'index': j,
                     'weight': 19,
-                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 33-024-F. [@col_FILIAL] - COL(@col_FILIAL), Dacă Rînd.(1) COL(1, 3, 4, 5, 6, 8) ≠ 0 atunci Rînd.(2) COL(1, 3, 4, 5, 6, 8) ≠ 0, @R1_C ≠ @R2_C', {
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-060-F. [@col_FILIAL] - COL(@col_FILIAL), Dacă Rînd.(1) COL(1, 3, 4, 5, 6, 8) ≠ 0 atunci Rînd.(2) COL(1, 3, 4, 5, 6, 8) ≠ 0, @R1_C ≠ @R2_C', {
                         '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
                         '@col_FILIAL': col,
                         '@R1_C': R1_C,
@@ -1456,8 +1459,57 @@ function validate33_014_F(values) {
 
 //----------------------------------------------------------------------------
 
+// Validation function: Dacă Tab.1.1 rd.2 col.1,3,4,5,6 ≠ 0, atunci Tab.1.1 rd.3 col.1,3,4,5,6 ≠ 0 și invers
+function validate_CAP111_R2_to_R3(values) {
+    var columns = ["C1", "C3", "C4", "C5", "C6"];
+    var row2 = "CAP111_R2_";
+    var row3 = "CAP111_R3_";
+
+    columns.forEach(function (col) {
+        var row2Value = !isNaN(Number(values[row2 + col])) ? Number(values[row2 + col]) : 0;
+        var row3Value = !isNaN(Number(values[row3 + col])) ? Number(values[row3 + col]) : 0;
+
+        if ((row2Value !== 0 && row3Value === 0) || (row2Value === 0 && row3Value !== 0)) {
+            webform.errors.push({
+                'fieldName': row3 + col,
+                'weight': 19,
+                'msg': Drupal.t('Cod eroare: 27-059. Dacă Tab.1.1 rd.2 ' + col + ' ≠ 0, atunci Tab.1.1 rd.3 ' + col + ' trebuie să fie ≠ 0 și invers. Valoare rd.2: ' + row2Value + ', valoare rd.3: ' + row3Value)
+            });
+        }
+    });
+}
 
 
+// Validation function for FILIAL: Dacă Tab.1.1 rd.2 col.1,3,4,5,6 ≠ 0, atunci Tab.1.1 rd.3 col.1,3,4,5,6 ≠ 0 și invers
+function validate_CAP111_R2_to_R3_F(values) {
+    var columns = ["C1", "C3", "C4", "C5", "C6"];
+    var row2 = "CAP111_R2_";
+    var row3 = "CAP111_R3_";
+
+    for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+        var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+        columns.forEach(function (col) {
+            var row2Value_F = values[row2 + col + "_FILIAL"] && !isNaN(Number(values[row2 + col + "_FILIAL"][j]))
+                ? Number(values[row2 + col + "_FILIAL"][j])
+                : 0;
+            var row3Value_F = values[row3 + col + "_FILIAL"] && !isNaN(Number(values[row3 + col + "_FILIAL"][j]))
+                ? Number(values[row3 + col + "_FILIAL"][j])
+                : 0;
+
+            if ((row2Value_F !== 0 && row3Value_F === 0) || (row2Value_F === 0 && row3Value_F !== 0)) {
+                webform.errors.push({
+                    'fieldName': row3 + col + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-059-F. Dacă Tab.1.1 rd.2 ' + col + ' ≠ 0, atunci Tab.1.1 rd.3 ' + col + ' trebuie să fie ≠ 0 și invers. Valoare rd.2: ' + row2Value_F + ', valoare rd.3: ' + row3Value_F, {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
+                    })
+                });
+            }
+        });
+    }
+}
 
 //-----------------------------------------------------------------------------------------------
 function getErrorMessage(errorCode) {
