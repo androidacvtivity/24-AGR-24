@@ -101,6 +101,7 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
 
     validate27_027(values);
     validate27_027_F(values);
+    validate27_029(values);
 
 
 
@@ -126,6 +127,81 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
     validateWebform();
 }
 
+//----------------------------------------------------------------------------------------------------
+
+function validate27_029(values) {
+    var col1 = "C1";
+
+    // Retrieve the values for Rd.7 COL.1 and Rd.20 COL.1
+    var Rd7_Col1 = !isNaN(Number(values["CAP111_R7_" + col1])) ? Number(values["CAP111_R7_" + col1]) : 0;
+    var Rd20_Col1 = !isNaN(Number(values["CAP111_R20_" + col1])) ? Number(values["CAP111_R20_" + col1]) : 0;
+
+    // Validation: Rd.7 COL.1 ≠ 0 implies Rd.20 COL.1 ≠ 0
+    if (Rd7_Col1 !== 0 && Rd20_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP111_R20_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-029. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R20-C1(@Rd20_Col1)', {
+                '@Rd7_Col1': Rd7_Col1,
+                '@Rd20_Col1': Rd20_Col1
+            })
+        });
+    }
+
+    // Validation: Rd.20 COL.1 ≠ 0 implies Rd.7 COL.1 ≠ 0
+    if (Rd20_Col1 !== 0 && Rd7_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP111_R7_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-029. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R7-C1(@Rd7_Col1)', {
+                '@Rd20_Col1': Rd20_Col1,
+                '@Rd7_Col1': Rd7_Col1
+            })
+        });
+    }
+
+    // FILIAL Validation
+    if (values.CAP_NUM_FILIAL) {
+        for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+            var Rd7_Col1_F = values["CAP111_R7_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R7_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP111_R7_" + col1 + "_FILIAL"][j])
+                : 0;
+            var Rd20_Col1_F = values["CAP111_R20_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R20_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP111_R20_" + col1 + "_FILIAL"][j])
+                : 0;
+
+            // Validation: Rd.7 COL.1 ≠ 0 implies Rd.20 COL.1 ≠ 0
+            if (Rd7_Col1_F !== 0 && Rd20_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP111_R20_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-029-F. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1_F), R20-C1(@Rd20_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd7_Col1_F': Rd7_Col1_F,
+                        '@Rd20_Col1_F': Rd20_Col1_F
+                    })
+                });
+            }
+
+            // Validation: Rd.20 COL.1 ≠ 0 implies Rd.7 COL.1 ≠ 0
+            if (Rd20_Col1_F !== 0 && Rd7_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP111_R7_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-029-F. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1_F), R7-C1(@Rd7_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd20_Col1_F': Rd20_Col1_F,
+                        '@Rd7_Col1_F': Rd7_Col1_F
+                    })
+                });
+            }
+        }
+    }
+}
 
 
 //-----------------------------------------------------------------------------------------------------
