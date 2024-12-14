@@ -104,3 +104,14 @@ Rand 5000 col.1= Rand 5100 col.1+ Rand 7100 col.1+ Rand 7200 col.1+ Rand 7300 co
 
 27-004	Tab. 2.1 col.1 rd. 36 = Tab. 2.2 col. 4 rd. 11
         CAP21_R36_C1 = CAP22_R11_C4 
+
+
+27-033	Tab. 1.1.1, Daca Rd.8 COL. 1 ≠ 0, atunci Tab. 2.2, Rind.11 COL.8 ≠ 0 -- Sa fie webform.warnings.push
+27-035	Tab. 1.1.1, Daca Rd.9 COL. 1 ≠ 0, atunci Tab. 2.2, Rind.11 COL.8 ≠ 0 -- Sa fie webform.warnings.push 
+27-038	Tab. 1.1.1, Daca rd.10 COL.1 ≠ 0, atunci Tab. 2.1, Rind.53 COL.1 ≠ 0 -- Sa fie webform.warnings.push 
+27-057	Tab. 1.1.1, Daca rd.21 COL.1 ≠ 0, atunci Tab. 2.2 , rd.11 COL.11 ≠ 0 
+
+
+27-036	Tab. 1.1.1, rd.10 COL1 ≥ Tab. 1.1.1 rd.11 COL1 -- -- Sa fie webform.warnings.push
+27-051	Tab. 1.1.1, Rind.17 COL1 ≥ Tab. 1.1.1 Rind.18 COL1
+
