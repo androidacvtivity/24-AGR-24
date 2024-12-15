@@ -102,13 +102,11 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
     validate27_027(values);
     validate27_027_F(values);
     validate27_029(values);
-
-
-
-
-
-
-
+    validate27_030(values);
+    validate27_031(values);
+    validate27_032(values);
+    validate27_034(values);
+    validate27_037(values);
 
     validate_CAP21_R21_to_CAP111_R20(values);
     validate_CAP21_R21_to_CAP111_R20_F(values);
@@ -126,6 +124,374 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
     webform.validatorsStatus['agro24_24'] = 1;
     validateWebform();
 }
+
+
+
+function validate27_030(values) {
+    var col1 = "C1";
+
+    var Rd7_Col1 = !isNaN(Number(values["CAP111_R7_" + col1])) ? Number(values["CAP111_R7_" + col1]) : 0;
+    var Rd21_Col1 = !isNaN(Number(values["CAP21_R21_" + col1])) ? Number(values["CAP21_R21_" + col1]) : 0;
+
+    if (Rd7_Col1 !== 0 && Rd21_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP21_R21_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-030. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R21-C1(@Rd21_Col1)', {
+                '@Rd7_Col1': Rd7_Col1,
+                '@Rd21_Col1': Rd21_Col1
+            })
+        });
+    }
+
+    if (Rd21_Col1 !== 0 && Rd7_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP111_R7_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-030. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R7-C1(@Rd7_Col1)', {
+                '@Rd21_Col1': Rd21_Col1,
+                '@Rd7_Col1': Rd7_Col1
+            })
+        });
+    }
+
+    if (values.CAP_NUM_FILIAL) {
+        for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+            var Rd7_Col1_F = values["CAP111_R7_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R7_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP111_R7_" + col1 + "_FILIAL"][j])
+                : 0;
+            var Rd21_Col1_F = values["CAP21_R21_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R21_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP21_R21_" + col1 + "_FILIAL"][j])
+                : 0;
+
+            if (Rd7_Col1_F !== 0 && Rd21_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP21_R21_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-030-F. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1_F), R21-C1(@Rd21_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd7_Col1_F': Rd7_Col1_F,
+                        '@Rd21_Col1_F': Rd21_Col1_F
+                    })
+                });
+            }
+
+            if (Rd21_Col1_F !== 0 && Rd7_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP111_R7_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-030-F. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_F), R7-C1(@Rd7_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd21_Col1_F': Rd21_Col1_F,
+                        '@Rd7_Col1_F': Rd7_Col1_F
+                    })
+                });
+            }
+        }
+    }
+}
+
+function validate27_031(values) {
+    var col1 = "C1";
+    var col2 = "C2";
+
+    // Main Data Validation
+    var Rd7_Col1 = !isNaN(Number(values["CAP111_R7_" + col1])) ? Number(values["CAP111_R7_" + col1]) : 0;
+    var Rd11_Col2 = !isNaN(Number(values["CAP22_R11_" + col2])) ? Number(values["CAP22_R11_" + col2]) : 0;
+
+    // If Rd.7 COL.1 ≠ 0, then Rd.11 COL.2 ≠ 0
+    if (Rd7_Col1 !== 0 && Rd11_Col2 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP22_R11_' + col2,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-031. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R11-C2(@Rd11_Col2)', {
+                '@Rd7_Col1': Rd7_Col1,
+                '@Rd11_Col2': Rd11_Col2
+            })
+        });
+    }
+
+    // If Rd.11 COL.2 ≠ 0, then Rd.7 COL.1 ≠ 0
+    if (Rd11_Col2 !== 0 && Rd7_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP111_R7_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-031. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2), R7-C1(@Rd7_Col1)', {
+                '@Rd11_Col2': Rd11_Col2,
+                '@Rd7_Col1': Rd7_Col1
+            })
+        });
+    }
+
+    // FILIAL Validation
+    if (values.CAP_NUM_FILIAL) {
+        for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+            var Rd7_Col1_F = values["CAP111_R7_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R7_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP111_R7_" + col1 + "_FILIAL"][j])
+                : 0;
+            var Rd11_Col2_F = values["CAP22_R11_" + col2 + "_FILIAL"] && !isNaN(Number(values["CAP22_R11_" + col2 + "_FILIAL"][j]))
+                ? Number(values["CAP22_R11_" + col2 + "_FILIAL"][j])
+                : 0;
+
+            // If Rd.7 COL.1 ≠ 0 in FILIAL, then Rd.11 COL.2 ≠ 0
+            if (Rd7_Col1_F !== 0 && Rd11_Col2_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP22_R11_' + col2 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-031-F. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1_F), R11-C2(@Rd11_Col2_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd7_Col1_F': Rd7_Col1_F,
+                        '@Rd11_Col2_F': Rd11_Col2_F
+                    })
+                });
+            }
+
+            // If Rd.11 COL.2 ≠ 0 in FILIAL, then Rd.7 COL.1 ≠ 0
+            if (Rd11_Col2_F !== 0 && Rd7_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP111_R7_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-031-F. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2_F), R7-C1(@Rd7_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd11_Col2_F': Rd11_Col2_F,
+                        '@Rd7_Col1_F': Rd7_Col1_F
+                    })
+                });
+            }
+        }
+    }
+}
+
+function validate27_032(values) {
+    var col1 = "C1";
+
+    // Main Data Validation
+    var Rd8_Col1 = !isNaN(Number(values["CAP111_R8_" + col1])) ? Number(values["CAP111_R8_" + col1]) : 0;
+    var Rd39_Col1 = !isNaN(Number(values["CAP21_R39_" + col1])) ? Number(values["CAP21_R39_" + col1]) : 0;
+
+    // If Rd.8 COL.1 ≠ 0, then Rd.39 COL.1 ≠ 0
+    if (Rd8_Col1 !== 0 && Rd39_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP21_R39_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-032. Dacă Tab. 1.1.1, Rând.8 COL.1 ≠ 0, atunci Tab. 2.1, Rând.39 COL.1 trebuie să fie ≠ 0. Valori: R8-C1(@Rd8_Col1), R39-C1(@Rd39_Col1)', {
+                '@Rd8_Col1': Rd8_Col1,
+                '@Rd39_Col1': Rd39_Col1
+            })
+        });
+    }
+
+    // If Rd.39 COL.1 ≠ 0, then Rd.8 COL.1 ≠ 0
+    if (Rd39_Col1 !== 0 && Rd8_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP111_R8_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-032. Dacă Tab. 2.1, Rând.39 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.8 COL.1 trebuie să fie ≠ 0. Valori: R39-C1(@Rd39_Col1), R8-C1(@Rd8_Col1)', {
+                '@Rd39_Col1': Rd39_Col1,
+                '@Rd8_Col1': Rd8_Col1
+            })
+        });
+    }
+
+    // FILIAL Validation
+    if (values.CAP_NUM_FILIAL) {
+        for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+            var Rd8_Col1_F = values["CAP111_R8_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R8_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP111_R8_" + col1 + "_FILIAL"][j])
+                : 0;
+            var Rd39_Col1_F = values["CAP21_R39_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R39_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP21_R39_" + col1 + "_FILIAL"][j])
+                : 0;
+
+            // If Rd.8 COL.1 ≠ 0 in FILIAL, then Rd.39 COL.1 ≠ 0
+            if (Rd8_Col1_F !== 0 && Rd39_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP21_R39_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-032-F. Dacă Tab. 1.1.1, Rând.8 COL.1 ≠ 0, atunci Tab. 2.1, Rând.39 COL.1 trebuie să fie ≠ 0. Valori: R8-C1(@Rd8_Col1_F), R39-C1(@Rd39_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd8_Col1_F': Rd8_Col1_F,
+                        '@Rd39_Col1_F': Rd39_Col1_F
+                    })
+                });
+            }
+
+            // If Rd.39 COL.1 ≠ 0 in FILIAL, then Rd.8 COL.1 ≠ 0
+            if (Rd39_Col1_F !== 0 && Rd8_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP111_R8_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-032-F. Dacă Tab. 2.1, Rând.39 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.8 COL.1 trebuie să fie ≠ 0. Valori: R39-C1(@Rd39_Col1_F), R8-C1(@Rd8_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd39_Col1_F': Rd39_Col1_F,
+                        '@Rd8_Col1_F': Rd8_Col1_F
+                    })
+                });
+            }
+        }
+    }
+}
+
+function validate27_034(values) {
+    var col1 = "C1";
+
+    // Main Data Validation
+    var Rd9_Col1 = !isNaN(Number(values["CAP111_R9_" + col1])) ? Number(values["CAP111_R9_" + col1]) : 0;
+    var Rd46_Col1 = !isNaN(Number(values["CAP21_R46_" + col1])) ? Number(values["CAP21_R46_" + col1]) : 0;
+
+    // If Rd.9 COL.1 ≠ 0, then Rd.46 COL.1 ≠ 0
+    if (Rd9_Col1 !== 0 && Rd46_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP21_R46_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-034. Dacă Tab. 1.1.1, Rând.9 COL.1 ≠ 0, atunci Tab. 2.1, Rând.46 COL.1 trebuie să fie ≠ 0. Valori: R9-C1(@Rd9_Col1), R46-C1(@Rd46_Col1)', {
+                '@Rd9_Col1': Rd9_Col1,
+                '@Rd46_Col1': Rd46_Col1
+            })
+        });
+    }
+
+    // If Rd.46 COL.1 ≠ 0, then Rd.9 COL.1 ≠ 0
+    if (Rd46_Col1 !== 0 && Rd9_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP111_R9_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-034. Dacă Tab. 2.1, Rând.46 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.9 COL.1 trebuie să fie ≠ 0. Valori: R46-C1(@Rd46_Col1), R9-C1(@Rd9_Col1)', {
+                '@Rd46_Col1': Rd46_Col1,
+                '@Rd9_Col1': Rd9_Col1
+            })
+        });
+    }
+
+    // FILIAL Validation
+    if (values.CAP_NUM_FILIAL) {
+        for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+            var Rd9_Col1_F = values["CAP111_R9_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R9_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP111_R9_" + col1 + "_FILIAL"][j])
+                : 0;
+            var Rd46_Col1_F = values["CAP21_R46_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R46_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP21_R46_" + col1 + "_FILIAL"][j])
+                : 0;
+
+            // If Rd.9 COL.1 ≠ 0 in FILIAL, then Rd.46 COL.1 ≠ 0
+            if (Rd9_Col1_F !== 0 && Rd46_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP21_R46_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-034-F. Dacă Tab. 1.1.1, Rând.9 COL.1 ≠ 0, atunci Tab. 2.1, Rând.46 COL.1 trebuie să fie ≠ 0. Valori: R9-C1(@Rd9_Col1_F), R46-C1(@Rd46_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd9_Col1_F': Rd9_Col1_F,
+                        '@Rd46_Col1_F': Rd46_Col1_F
+                    })
+                });
+            }
+
+            // If Rd.46 COL.1 ≠ 0 in FILIAL, then Rd.9 COL.1 ≠ 0
+            if (Rd46_Col1_F !== 0 && Rd9_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP111_R9_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-034-F. Dacă Tab. 2.1, Rând.46 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.9 COL.1 trebuie să fie ≠ 0. Valori: R46-C1(@Rd46_Col1_F), R9-C1(@Rd9_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd46_Col1_F': Rd46_Col1_F,
+                        '@Rd9_Col1_F': Rd9_Col1_F
+                    })
+                });
+            }
+        }
+    }
+}
+
+function validate27_037(values) {
+    var col1 = "C1";
+
+    // Main Data Validation
+    var Rd10_Col1 = !isNaN(Number(values["CAP111_R10_" + col1])) ? Number(values["CAP111_R10_" + col1]) : 0;
+    var Rd21_Col1 = !isNaN(Number(values["CAP111_R21_" + col1])) ? Number(values["CAP111_R21_" + col1]) : 0;
+
+    // If Rd.10 COL.1 ≠ 0, then Rd.21 COL.1 ≠ 0
+    if (Rd10_Col1 !== 0 && Rd21_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP111_R21_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R10-C1(@Rd10_Col1), R21-C1(@Rd21_Col1)', {
+                '@Rd10_Col1': Rd10_Col1,
+                '@Rd21_Col1': Rd21_Col1
+            })
+        });
+    }
+
+    // If Rd.21 COL.1 ≠ 0, then Rd.10 COL.1 ≠ 0
+    if (Rd21_Col1 !== 0 && Rd10_Col1 === 0) {
+        webform.warnings.push({
+            'fieldName': 'CAP111_R10_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R10-C1(@Rd10_Col1)', {
+                '@Rd21_Col1': Rd21_Col1,
+                '@Rd10_Col1': Rd10_Col1
+            })
+        });
+    }
+
+    // FILIAL Validation
+    if (values.CAP_NUM_FILIAL) {
+        for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+            var Rd10_Col1_F = values["CAP111_R10_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R10_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP111_R10_" + col1 + "_FILIAL"][j])
+                : 0;
+            var Rd21_Col1_F = values["CAP111_R21_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R21_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP111_R21_" + col1 + "_FILIAL"][j])
+                : 0;
+
+            // If Rd.10 COL.1 ≠ 0 in FILIAL, then Rd.21 COL.1 ≠ 0
+            if (Rd10_Col1_F !== 0 && Rd21_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP111_R21_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-037-F. Dacă Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R10-C1(@Rd10_Col1_F), R21-C1(@Rd21_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd10_Col1_F': Rd10_Col1_F,
+                        '@Rd21_Col1_F': Rd21_Col1_F
+                    })
+                });
+            }
+
+            // If Rd.21 COL.1 ≠ 0 in FILIAL, then Rd.10 COL.1 ≠ 0
+            if (Rd21_Col1_F !== 0 && Rd10_Col1_F === 0) {
+                webform.warnings.push({
+                    'fieldName': 'CAP111_R10_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-037-F. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_F), R10-C1(@Rd10_Col1_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd21_Col1_F': Rd21_Col1_F,
+                        '@Rd10_Col1_F': Rd10_Col1_F
+                    })
+                });
+            }
+        }
+    }
+}
+
 
 //----------------------------------------------------------------------------------------------------
 
