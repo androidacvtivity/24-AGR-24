@@ -1,5 +1,3 @@
-````
-
 function validate27_040(values) {
     var col1 = "C1";
 
@@ -1676,3 +1674,28 @@ function validate27_026(values) {
         }
     }
 }
+
+
+
+validate27_040(values);
+validate27_044(values);
+validate27_052(values);
+validate27_053(values);
+validate27_054(values);
+validate27_055(values);
+validate27_056(values);
+validate27_073(values);
+validate27_074(values);
+validate27_075(values);
+validate27_015(values);
+validate27_016(values);
+validate27_017(values);
+validate27_018(values);
+validate27_019(values);
+validate27_020(values);
+validate27_021(values);
+validate27_022(values);
+validate27_023(values);
+validate27_024(values);
+validate27_025(values);
+validate27_026(values);
