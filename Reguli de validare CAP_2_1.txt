@@ -117,3 +117,13 @@ Rand 5000 col.1= Rand 5100 col.1+ Rand 7100 col.1+ Rand 7200 col.1+ Rand 7300 co
 
 27-027	Tab. 1.1, Dacă în  Rind. 4, coloanele (1, 3, 4, 5, 6, 8) ≠ 0, atunci în Tab. 2.2, Rind. 10, coloanele (1,4,6,9,11,12) ≠ 0 si invers	 -- -- Sa fie webform.warnings.push
 
+Creaza urmatorele reguli de validare
+
+27-030	Tab. 1.1.1, Daca Rd.7 COL. 1 ≠ 0, atunci Tab. 2.1, Rd.21 COL.1 ≠ 0 și invers	Sa fie webform.warnings.push
+27-031	Tab. 1.1.1, Daca Rd.7 COL. 1 ≠ 0, atunci Tab. 2.2, Rd.11 COL.2 ≠ 0 și invers	Sa fie webform.warnings.push
+27-032	Tab. 1.1.1, Daca Rd.8 COL. 1 ≠ 0, atunci Tab. 2.1, Rind.39 COL.1≠ 0 și invers	Sa fie webform.warnings.push
+27-034	Tab. 1.1.1, Daca Rd.9 COL. 1 ≠ 0, atunci Tab. 2.1, Rind.46 COL.1 ≠ 0 și invers	 Sa fie webform.warnings.push
+27-037	Tab. 1.1.1, Daca rd.10 COL.1 ≠ 0, atunci Tab. 1.1.1, Rind.21 COL.1 ≠ 0 și invers	 Sa fie webform.warnings.push
+
+27-052	Tab. 1.1.1, Daca rd.18 COL.1 ≠ 0, atunci Tab. 1.1.1, rd.17 COL.1 ≠ 0 și invers  Sa fie webform.errors.push 
+
