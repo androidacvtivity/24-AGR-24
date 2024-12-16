@@ -2282,7 +2282,7 @@ function validate27_029(values) {
 // Validation function for 27-027: Tab. 1.1, Dacă în Rind. 4, coloanele (1, 3, 4, 5, 6, 8) ≠ 0, atunci în Tab. 2.2, Rind. 10, coloanele (1, 4, 6, 9, 11, 12) ≠ 0 și invers
 function validate27_027(values) {
     var columnsTab1 = [1, 3, 4, 5, 6, 8];
-    var columnsTab2 = [1, 4, 6, 9, 11, 12];
+    var columnsTab2 = [1, 4, 6, 7, 11, 12];
 
     for (var i = 0; i < columnsTab1.length; i++) {
         var colTab1 = "C" + columnsTab1[i];
@@ -2326,7 +2326,7 @@ function validate27_027(values) {
 // Validation function for 27-027 (FILIAL): Tab. 1.1, Dacă în Rind. 4, coloanele (1, 3, 4, 5, 6, 8) ≠ 0, atunci în Tab. 2.2, Rind. 10, coloanele (1, 4, 6, 9, 11, 12) ≠ 0 și invers
 function validate27_027_F(values) {
     var columnsTab1 = [1, 3, 4, 5, 6, 8];
-    var columnsTab2 = [1, 4, 6, 9, 11, 12];
+    var columnsTab2 = [1, 4, 6, 7, 11, 12];
 
     for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
         var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
