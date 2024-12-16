@@ -130,6 +130,7 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
     validate27_024(values);
     validate27_025(values);
     validate27_026(values);
+    validate27_027_1(values);
 
     validate_CAP21_R21_to_CAP111_R20(values);
     validate_CAP21_R21_to_CAP111_R20_F(values);
@@ -146,6 +147,77 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
 
     webform.validatorsStatus['agro24_24'] = 1;
     validateWebform();
+}
+
+//----------------------------------------------
+
+function validate27_027_1(values) {
+    var col8 = "C8";
+    var col12 = "C12";
+    var col9 = "C9";
+
+    // Main Data Validation
+    var Rd4_Col8_Tab11 = !isNaN(Number(values["CAP11_R4_" + col8])) ? Number(values["CAP11_R4_" + col8]) : 0;
+    var Rd10_Col12_Tab22 = !isNaN(Number(values["CAP22_R10_" + col12])) ? Number(values["CAP22_R10_" + col12]) : 0;
+    var Rd10_Col9_Tab22 = !isNaN(Number(values["CAP22_R10_" + col9])) ? Number(values["CAP22_R10_" + col9]) : 0;
+
+    // If Rind.4 COL.8 in Tab. 1.1 ≠ 0, then Rind.10 COL.12 or COL.9 in Tab. 2.2 ≠ 0
+    if (Rd4_Col8_Tab11 !== 0 && (Rd10_Col12_Tab22 === 0 && Rd10_Col9_Tab22 === 0)) {
+        webform.errors.push({
+            'fieldName': 'CAP22_R10_' + col12,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-027.1. Dacă Tab. 1.1, Rând.4 COL.8 ≠ 0, atunci Tab. 2.2, Rând.10 COL.12 sau COL.9 trebuie să fie ≠ 0. Valori: R4-C8(@Rd4_Col8_Tab11), R10-C12(@Rd10_Col12_Tab22), R10-C9(@Rd10_Col9_Tab22)', {
+                '@Rd4_Col8_Tab11': Rd4_Col8_Tab11,
+                '@Rd10_Col12_Tab22': Rd10_Col12_Tab22,
+                '@Rd10_Col9_Tab22': Rd10_Col9_Tab22
+            })
+        });
+    }
+
+    // If Rind.10 COL.12 or COL.9 in Tab. 2.2 ≠ 0, then Rind.4 COL.8 in Tab. 1.1 ≠ 0
+    if ((Rd10_Col12_Tab22 !== 0 || Rd10_Col9_Tab22 !== 0) && Rd4_Col8_Tab11 === 0) {
+        webform.errors.push({
+            'fieldName': 'CAP11_R4_' + col8,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-027.1. Dacă Tab. 2.2, Rând.10 COL.12 sau COL.9 ≠ 0, atunci Tab. 1.1, Rând.4 COL.8 trebuie să fie ≠ 0. Valori: R10-C12(@Rd10_Col12_Tab22), R10-C9(@Rd10_Col9_Tab22), R4-C8(@Rd4_Col8_Tab11)', {
+                '@Rd10_Col12_Tab22': Rd10_Col12_Tab22,
+                '@Rd10_Col9_Tab22': Rd10_Col9_Tab22,
+                '@Rd4_Col8_Tab11': Rd4_Col8_Tab11
+            })
+        });
+    }
+
+    // FILIAL Validation
+    if (values.CAP_NUM_FILIAL) {
+        for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+            var Rd4_Col8_Tab11_F = values["CAP11_R4_" + col8 + "_FILIAL"] && !isNaN(Number(values["CAP11_R4_" + col8 + "_FILIAL"][j]))
+                ? Number(values["CAP11_R4_" + col8 + "_FILIAL"][j])
+                : 0;
+            var Rd10_Col12_Tab22_F = values["CAP22_R10_" + col12 + "_FILIAL"] && !isNaN(Number(values["CAP22_R10_" + col12 + "_FILIAL"][j]))
+                ? Number(values["CAP22_R10_" + col12 + "_FILIAL"][j])
+                : 0;
+            var Rd10_Col9_Tab22_F = values["CAP22_R10_" + col9 + "_FILIAL"] && !isNaN(Number(values["CAP22_R10_" + col9 + "_FILIAL"][j]))
+                ? Number(values["CAP22_R10_" + col9 + "_FILIAL"][j])
+                : 0;
+
+            // Validate FILIAL logic
+            if (Rd4_Col8_Tab11_F !== 0 && (Rd10_Col12_Tab22_F === 0 && Rd10_Col9_Tab22_F === 0)) {
+                webform.errors.push({
+                    'fieldName': 'CAP22_R10_' + col12 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-027.1-F. Dacă Tab. 1.1, Rând.4 COL.8 ≠ 0, atunci Tab. 2.2, Rând.10 COL.12 sau COL.9 trebuie să fie ≠ 0. Valori: R4-C8(@Rd4_Col8_Tab11_F), R10-C12(@Rd10_Col12_Tab22_F), R10-C9(@Rd10_Col9_Tab22_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd4_Col8_Tab11_F': Rd4_Col8_Tab11_F,
+                        '@Rd10_Col12_Tab22_F': Rd10_Col12_Tab22_F,
+                        '@Rd10_Col9_Tab22_F': Rd10_Col9_Tab22_F
+                    })
+                });
+            }
+        }
+    }
 }
 
 
