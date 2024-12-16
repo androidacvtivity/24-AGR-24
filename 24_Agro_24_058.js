@@ -155,44 +155,41 @@ webform.validators.agro24_24 = function (v, allowOverpass) {
 
 
 function validate27_058_1(values) {
-    var colsTab22 = ["C9", "C12"];
-    var colsTab11 = ["C8", "C8"]; // COL (8,8) refers to the same column repeated.
+    // Definirea coloanelor pentru fiecare tabel
+    var colsTab22 = ["C9", "C12"]; // Tab. 2.2, Rind.3
+    var colsTab11 = ["C8", "C8"];  // Tab. 1.1, Rind.1
 
-    // Main Data Validation
-    var Rd3_Cols_Tab22 = colsTab22.map(col => !isNaN(Number(values["CAP22_R3_" + col])) ? Number(values["CAP22_R3_" + col]) : 0);
-    var Rd1_Cols_Tab11 = colsTab11.map(col => !isNaN(Number(values["CAP11_R1_" + col])) ? Number(values["CAP11_R1_" + col]) : 0);
+    // Iterăm prin perechi de coloane în ordine
+    for (var i = 0; i < colsTab22.length; i++) {
+        var colTab22 = colsTab22[i];
+        var colTab11 = colsTab11[i];
 
-    // Check if any COL in Tab. 2.2, Rind.3 ≠ 0
-    var isTab22NotEmpty = Rd3_Cols_Tab22.some(value => value !== 0);
-    // Check if COL(8,8) in Tab. 1.1, Rind.1 ≠ 0
-    var isTab11NotEmpty = Rd1_Cols_Tab11.some(value => value !== 0);
+        var valueTab22 = !isNaN(Number(values["CAP22_R3_" + colTab22])) ? Number(values["CAP22_R3_" + colTab22]) : 0;
+        var valueTab11 = !isNaN(Number(values["CAP11_R1_" + colTab11])) ? Number(values["CAP11_R1_" + colTab11]) : 0;
 
-    // If Tab. 2.2 Rind.3 COL(9,12) ≠ 0, then Tab. 1.1 Rind.1 COL(8,8) ≠ 0
-    if (isTab22NotEmpty && !isTab11NotEmpty) {
-        webform.errors.push({
-            'fieldName': 'CAP11_R1_C8',
-            'weight': 19,
-            'msg': Drupal.t('Cod eroare: 27-058.1. Dacă Tab. 2.2, Rând.3 COL(9,12) ≠ 0, atunci Tab. 1.1, Rând.1 COL(8,8) trebuie să fie ≠ 0. Valori: R3-C9(@Rd3C9), R3-C12(@Rd3C12), R1-C8(@Rd1C8_1, @Rd1C8_2)', {
-                '@Rd3C9': Rd3_Cols_Tab22[0],
-                '@Rd3C12': Rd3_Cols_Tab22[1],
-                '@Rd1C8_1': Rd1_Cols_Tab11[0],
-                '@Rd1C8_2': Rd1_Cols_Tab11[1]
-            })
-        });
-    }
+        // Verificare în ordine: Tab. 2.2 → Tab. 1.1
+        if (valueTab22 !== 0 && valueTab11 === 0) {
+            webform.errors.push({
+                'fieldName': 'CAP11_R1_' + colTab11,
+                'weight': 19,
+                'msg': Drupal.t('Cod eroare: 27-058.1. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.', {
+                    '@colTab22': colTab22,
+                    '@colTab11': colTab11
+                })
+            });
+        }
 
-    // If Tab. 1.1 Rind.1 COL(8,8) ≠ 0, then Tab. 2.2 Rind.3 COL(9,12) ≠ 0
-    if (isTab11NotEmpty && !isTab22NotEmpty) {
-        webform.errors.push({
-            'fieldName': 'CAP22_R3_C9',
-            'weight': 19,
-            'msg': Drupal.t('Cod eroare: 27-058.1. Dacă Tab. 1.1, Rând.1 COL(8,8) ≠ 0, atunci Tab. 2.2, Rând.3 COL(9,12) trebuie să fie ≠ 0. Valori: R1-C8(@Rd1C8_1, @Rd1C8_2), R3-C9(@Rd3C9), R3-C12(@Rd3C12)', {
-                '@Rd1C8_1': Rd1_Cols_Tab11[0],
-                '@Rd1C8_2': Rd1_Cols_Tab11[1],
-                '@Rd3C9': Rd3_Cols_Tab22[0],
-                '@Rd3C12': Rd3_Cols_Tab22[1]
-            })
-        });
+        // Verificare inversă: Tab. 1.1 → Tab. 2.2
+        if (valueTab11 !== 0 && valueTab22 === 0) {
+            webform.errors.push({
+                'fieldName': 'CAP22_R3_' + colTab22,
+                'weight': 19,
+                'msg': Drupal.t('Cod eroare: 27-058.1. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.', {
+                    '@colTab22': colTab22,
+                    '@colTab11': colTab11
+                })
+            });
+        }
     }
 
     // FILIAL Validation
@@ -200,40 +197,44 @@ function validate27_058_1(values) {
         for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
             var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
 
-            var Rd3_Cols_Tab22_F = colsTab22.map(col =>
-                values["CAP22_R3_" + col + "_FILIAL"] && !isNaN(Number(values["CAP22_R3_" + col + "_FILIAL"][j]))
-                    ? Number(values["CAP22_R3_" + col + "_FILIAL"][j])
-                    : 0
-            );
-            var Rd1_Cols_Tab11_F = colsTab11.map(col =>
-                values["CAP11_R1_" + col + "_FILIAL"] && !isNaN(Number(values["CAP11_R1_" + col + "_FILIAL"][j]))
-                    ? Number(values["CAP11_R1_" + col + "_FILIAL"][j])
-                    : 0
-            );
+            for (var i = 0; i < colsTab22.length; i++) {
+                var colTab22_F = colsTab22[i];
+                var colTab11_F = colsTab11[i];
 
-            var isTab22NotEmpty_F = Rd3_Cols_Tab22_F.some(value => value !== 0);
-            var isTab11NotEmpty_F = Rd1_Cols_Tab11_F.some(value => value !== 0);
+                var valueTab22_F = values["CAP22_R3_" + colTab22_F + "_FILIAL"] && !isNaN(Number(values["CAP22_R3_" + colTab22_F + "_FILIAL"][j]))
+                    ? Number(values["CAP22_R3_" + colTab22_F + "_FILIAL"][j])
+                    : 0;
+                var valueTab11_F = values["CAP11_R1_" + colTab11_F + "_FILIAL"] && !isNaN(Number(values["CAP11_R1_" + colTab11_F + "_FILIAL"][j]))
+                    ? Number(values["CAP11_R1_" + colTab11_F + "_FILIAL"][j])
+                    : 0;
 
-            if (isTab22NotEmpty_F && !isTab11NotEmpty_F) {
-                webform.errors.push({
-                    'fieldName': 'CAP11_R1_C8_FILIAL',
-                    'index': j,
-                    'weight': 19,
-                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-058.1-F. Dacă Tab. 2.2, Rând.3 COL(9,12) ≠ 0, atunci Tab. 1.1, Rând.1 COL(8,8) trebuie să fie ≠ 0.', {
-                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
-                    })
-                });
-            }
+                // Verificare în ordine: Tab. 2.2 → Tab. 1.1 pentru FILIAL
+                if (valueTab22_F !== 0 && valueTab11_F === 0) {
+                    webform.errors.push({
+                        'fieldName': 'CAP11_R1_' + colTab11_F + '_FILIAL',
+                        'index': j,
+                        'weight': 19,
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-058.1-F. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.', {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@colTab22': colTab22_F,
+                            '@colTab11': colTab11_F
+                        })
+                    });
+                }
 
-            if (isTab11NotEmpty_F && !isTab22NotEmpty_F) {
-                webform.errors.push({
-                    'fieldName': 'CAP22_R3_C9_FILIAL',
-                    'index': j,
-                    'weight': 19,
-                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-058.1-F. Dacă Tab. 1.1, Rând.1 COL(8,8) ≠ 0, atunci Tab. 2.2, Rând.3 COL(9,12) trebuie să fie ≠ 0.', {
-                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL
-                    })
-                });
+                // Verificare inversă: Tab. 1.1 → Tab. 2.2 pentru FILIAL
+                if (valueTab11_F !== 0 && valueTab22_F === 0) {
+                    webform.errors.push({
+                        'fieldName': 'CAP22_R3_' + colTab22_F + '_FILIAL',
+                        'index': j,
+                        'weight': 19,
+                        'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-058.1-F. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.', {
+                            '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                            '@colTab22': colTab22_F,
+                            '@colTab11': colTab11_F
+                        })
+                    });
+                }
             }
         }
     }
