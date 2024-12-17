@@ -409,8 +409,8 @@ function validate27_027_1(values) {
 
 function validate27_027(values) {
     // Coloanele pentru fiecare tabel
-    var colsTab11 = ["C1", "C3", "C4", "C5", "C6", "C8"];   // Tab. 1.1, Rind.4
-    var colsTab22 = ["C1", "C4", "C6", "C7", "C11", "C12"]; // Tab. 2.2, Rind.10
+    var colsTab11 = ["C1", "C3", "C4", "C5", "C6"];   // Tab. 1.1, Rind.4
+    var colsTab22 = ["C1", "C4", "C6", "C7", "C11"]; // Tab. 2.2, Rind.10
 
     // Verificare principală: TAB. 1.1 → TAB. 2.2
     for (var i = 0; i < colsTab11.length; i++) {
