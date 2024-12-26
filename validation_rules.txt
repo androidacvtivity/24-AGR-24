@@ -61,3 +61,6 @@ december1024	b8577d68	Commit to december1024 by vitalie.bancu at 2024-12-10 11:1
 december1024
 
 december2624	08e8908e	Commit to december2624 by vitalie.bancu at 2024-12-26 10:53 - Modificarea raportului 29_agr29 - 29_AGR_033.js si adaugarea raportului nou 24_agr_24 - 24_Agro_24_064.js
+
+
+december26241	9b3e6ab5	Commit to december26241 by vitalie.bancu at 2024-12-26 13:16 - Modificarea raportului 29_agr29 - 29_AGR_033.js si adaugarea raportului nou 24_agr_24 - 24_Agro_24_064.js
