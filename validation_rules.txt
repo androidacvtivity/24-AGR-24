@@ -45,3 +45,19 @@ Acum in introdus  Tab. 2.2 col. 6 rd.1 - 49 si la verificare am urmatoarea eroar
 Tabel 2.2 Rînd. 1 col.18 - Cod eroare: 27-073. Dacă Tab. 2.2, Rând.1 COL.C6 ≠ 0, atunci Tab. 2.2, Rând.2 COL.C6 trebuie să fie ≠ 0. Valori: R1-CC6(49), R2-CC6(0)
 
 in CIS2 la fel. 
+
+december0224	7e700b6c	Commit to december0224 by vitalie.bancu at 2024-12-02 14:56 - Added new report 29_agr24 - 29_AGR_028.js	
+
+    Sync with branch View changes 
+
+december0424	eb67cb75	Commit to december0424 by vitalie.bancu at 2024-12-04 15:47 - Added new report 29_agr24 - 29_AGR_030.js	
+
+    Sync with branch View changes 
+
+december1024	b8577d68	Commit to december1024 by vitalie.bancu at 2024-12-10 11:18 - Modificare raportul 29 Agro Anual - partea de HTML (doua cuvinte modificate)	
+
+    Sync with branch View changes 
+
+december1024
+
+december2624	08e8908e	Commit to december2624 by vitalie.bancu at 2024-12-26 10:53 - Modificarea raportului 29_agr29 - 29_AGR_033.js si adaugarea raportului nou 24_agr_24 - 24_Agro_24_064.js
