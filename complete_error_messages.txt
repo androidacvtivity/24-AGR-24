@@ -1,0 +1,185 @@
+Cod eroare: 27-058.1. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.
+Cod eroare: 27-058.1. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-058.1-F. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-058.1-F. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.
+Cod eroare: 27-058. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.
+Cod eroare: 27-058. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-058-F. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-058-F. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.
+Cod eroare: 27-027.1. Dacă Tab. 1.1, Rând.4 COL.8 ≠ 0, atunci Tab. 2.2, Rând.10 COL.12 sau COL.9 trebuie să fie ≠ 0. Valori: R4-C8(@Rd4_Col8_Tab11), R10-C12(@Rd10_Col12_Tab22), R10-C9(@Rd10_Col9_Tab22)
+Cod eroare: 27-027.1. Dacă Tab. 2.2, Rând.10 COL.12 sau COL.9 ≠ 0, atunci Tab. 1.1, Rând.4 COL.8 trebuie să fie ≠ 0. Valori: R10-C12(@Rd10_Col12_Tab22), R10-C9(@Rd10_Col9_Tab22), R4-C8(@Rd4_Col8_Tab11)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-027.1-F. Dacă Tab. 1.1, Rând.4 COL.8 ≠ 0, atunci Tab. 2.2, Rând.10 COL.12 sau COL.9 trebuie să fie ≠ 0. Valori: R4-C8(@Rd4_Col8_Tab11_F), R10-C12(@Rd10_Col12_Tab22_F), R10-C9(@Rd10_Col9_Tab22_F)
+Cod eroare: 27-027. Dacă Tab. 1.1, Rând.4 COL (@colTab11) = @valueTab11 ≠ 0, atunci Tab. 2.2, Rând.10 COL (@colTab22) = @valueTab22 trebuie să fie ≠ 0.
+Cod eroare: 27-027. Dacă Tab. 2.2, Rând.10 COL (@colTab22) = @valueTab22 ≠ 0, atunci Tab. 1.1, Rând.4 COL (@colTab11) = @valueTab11 trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-027-F. Dacă Tab. 1.1, Rând.4 COL (@colTab11) = @valueTab11_F ≠ 0, atunci Tab. 2.2, Rând.10 COL (@colTab22) = @valueTab22_F trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-027-F. Dacă Tab. 2.2, Rând.10 COL (@colTab22) = @valueTab22_F ≠ 0, atunci Tab. 1.1, Rând.4 COL (@colTab11) = @valueTab11_F trebuie să fie ≠ 0.
+Cod eroare: 27-040. Dacă Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 2.1, Rând.54 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1), R54-C1(@Rd54_Col1)
+Cod eroare: 27-040. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1), R11-C1(@Rd11_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-040-F. Dacă Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 2.1, Rând.54 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1_F), R54-C1(@Rd54_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-040-F. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1_F), R11-C1(@Rd11_Col1_F)
+Cod eroare: 27-044. Dacă Tab. 1.1.1, Rând.13 COL.1 ≠ 0, atunci Tab. 2.1, Rând.43 COL.1 trebuie să fie ≠ 0. Valori: R13-C1(@Rd13_Col1), R43-C1(@Rd43_Col1)
+Cod eroare: 27-044. Dacă Tab. 2.1, Rând.43 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.13 COL.1 trebuie să fie ≠ 0. Valori: R43-C1(@Rd43_Col1), R13-C1(@Rd13_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-044-F. Dacă Tab. 1.1.1, Rând.13 COL.1 ≠ 0, atunci Tab. 2.1, Rând.43 COL.1 trebuie să fie ≠ 0. Valori: R13-C1(@Rd13_Col1_F), R43-C1(@Rd43_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-044-F. Dacă Tab. 2.1, Rând.43 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.13 COL.1 trebuie să fie ≠ 0. Valori: R43-C1(@Rd43_Col1_F), R13-C1(@Rd13_Col1_F)
+Cod eroare: 27-052. Dacă Tab. 1.1.1, Rând.18 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≠ 0. Valori: R18-C1(@Rd18_Col1), R17-C1(@Rd17_Col1)
+Cod eroare: 27-052. Dacă Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.18 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@Rd17_Col1), R18-C1(@Rd18_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-052-F. Dacă Tab. 1.1.1, Rând.18 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≠ 0. Valori: R18-C1(@Rd18_Col1_F), R17-C1(@Rd17_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-052-F. Dacă Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.18 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@Rd17_Col1_F), R18-C1(@Rd18_Col1_F)
+Cod eroare: 27-053. Dacă Tab. 1.1.1, Rând.19 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≠ 0. Valori: R19-C1(@Rd19_Col1), R17-C1(@Rd17_Col1)
+Cod eroare: 27-053. Dacă Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.19 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@Rd17_Col1), R19-C1(@Rd19_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-053-F. Dacă Tab. 1.1.1, Rând.19 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≠ 0. Valori: R19-C1(@Rd19_Col1_F), R17-C1(@Rd17_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-053-F. Dacă Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.19 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@Rd17_Col1_F), R19-C1(@Rd19_Col1_F)
+Cod eroare: 27-054. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R21-C1(@Rd21_Col1)
+Cod eroare: 27-054. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R20-C1(@Rd20_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-054-F. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1_F), R21-C1(@Rd21_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-054-F. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_F), R20-C1(@Rd20_Col1_F)
+Cod eroare: 27-055. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R11-C2(@Rd11_Col2)
+Cod eroare: 27-055. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2), R20-C1(@Rd20_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-055-F. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1_F), R11-C2(@Rd11_Col2_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-055-F. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2_F), R20-C1(@Rd20_Col1_F)
+Cod eroare: 27-056. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.1, Rând.54 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R54-C1(@Rd54_Col1)
+Cod eroare: 27-056. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1), R21-C1(@Rd21_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-056-F. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.1, Rând.54 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_F), R54-C1(@Rd54_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-056-F. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1_F), R21-C1(@Rd21_Col1_F)
+Cod eroare: 27-073. Dacă Tab. 2.2, Rând.1 COL.@col ≠ 0, atunci Tab. 2.2, Rând.2 COL.@col trebuie să fie ≠ 0. Valori: R1-C@col(@Rd1_Col), R2-C@col(@Rd2_Col)
+Cod eroare: 27-073. Dacă Tab. 2.2, Rând.2 COL.@col ≠ 0, atunci Tab. 2.2, Rând.1 COL.@col trebuie să fie ≠ 0. Valori: R2-C@col(@Rd2_Col), R1-C@col(@Rd1_Col)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-073-F. Dacă Tab. 2.2, Rând.1 COL.@col ≠ 0, atunci Tab. 2.2, Rând.2 COL.@col trebuie să fie ≠ 0. Valori: R1-C@col(@Rd1_Col_F), R2-C@col(@Rd2_Col_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-073-F. Dacă Tab. 2.2, Rând.2 COL.@col ≠ 0, atunci Tab. 2.2, Rând.1 COL.@col trebuie să fie ≠ 0. Valori: R2-C@col(@Rd2_Col_F), R1-C@col(@Rd1_Col_F)
+Cod eroare: 27-074. Dacă Tab. 2.2, Rând.6 COL.@col ≠ 0, atunci Tab. 2.2, Rând.7 COL.@col trebuie să fie ≠ 0. Valori: R6-C@col(@Rd6_Col), R7-C@col(@Rd7_Col)
+Cod eroare: 27-074. Dacă Tab. 2.2, Rând.7 COL.@col ≠ 0, atunci Tab. 2.2, Rând.6 COL.@col trebuie să fie ≠ 0. Valori: R7-C@col(@Rd7_Col), R6-C@col(@Rd6_Col)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-074-F. Dacă Tab. 2.2, Rând.6 COL.@col ≠ 0, atunci Tab. 2.2, Rând.7 COL.@col trebuie să fie ≠ 0. Valori: R6-C@col(@Rd6_Col_F), R7-C@col(@Rd7_Col_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-074-F. Dacă Tab. 2.2, Rând.7 COL.@col ≠ 0, atunci Tab. 2.2, Rând.6 COL.@col trebuie să fie ≠ 0. Valori: R7-C@col(@Rd7_Col_F), R6-C@col(@Rd6_Col_F)
+Cod eroare: 27-075. Dacă Tab. 2.2, Rând.8 COL.@col ≠ 0, atunci Tab. 2.2, Rând.9 COL.@col trebuie să fie ≠ 0. Valori: R8-C@col(@Rd8_Col), R9-C@col(@Rd9_Col)
+Cod eroare: 27-075. Dacă Tab. 2.2, Rând.9 COL.@col ≠ 0, atunci Tab. 2.2, Rând.8 COL.@col trebuie să fie ≠ 0. Valori: R9-C@col(@Rd9_Col), R8-C@col(@Rd8_Col)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-075-F. Dacă Tab. 2.2, Rând.8 COL.@col ≠ 0, atunci Tab. 2.2, Rând.9 COL.@col trebuie să fie ≠ 0. Valori: R8-C@col(@Rd8_Col_F), R9-C@col(@Rd9_Col_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-075-F. Dacă Tab. 2.2, Rând.9 COL.@col ≠ 0, atunci Tab. 2.2, Rând.8 COL.@col trebuie să fie ≠ 0. Valori: R9-C@col(@Rd9_Col_F), R8-C@col(@Rd8_Col_F)
+Cod eroare: 27-015. Dacă Tab. 2.2, Rând.11 COL.1 ≠ 0, atunci Tab. 2.1, Rând.23 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1_Tab22), R23-C1(@Rd23_Col1_Tab21)
+Cod eroare: 27-015. Dacă Tab. 2.1, Rând.23 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R23-C1(@Rd23_Col1_Tab21), R11-C1(@Rd11_Col1_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-015-F. Dacă Tab. 2.2, Rând.11 COL.1 ≠ 0, atunci Tab. 2.1, Rând.23 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1_Tab22_F), R23-C1(@Rd23_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-015-F. Dacă Tab. 2.1, Rând.23 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R23-C1(@Rd23_Col1_Tab21_F), R11-C1(@Rd11_Col1_Tab22_F)
+Cod eroare: 27-016. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2_Tab22), R21-C1(@Rd21_Col1_Tab21)
+Cod eroare: 27-016. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_Tab21), R11-C2(@Rd11_Col2_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-016-F. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2_Tab22_F), R21-C1(@Rd21_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-016-F. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_Tab21_F), R11-C2(@Rd11_Col2_Tab22_F)
+Cod eroare: 27-017. Dacă Tab. 2.2, Rând.11 COL.3 ≠ 0, atunci Tab. 2.1, Rând.15 COL.1 trebuie să fie ≠ 0. Valori: R11-C3(@Rd11_Col3_Tab22), R15-C1(@Rd15_Col1_Tab21)
+Cod eroare: 27-017. Dacă Tab. 2.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.3 trebuie să fie ≠ 0. Valori: R15-C1(@Rd15_Col1_Tab21), R11-C3(@Rd11_Col3_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-017-F. Dacă Tab. 2.2, Rând.11 COL.3 ≠ 0, atunci Tab. 2.1, Rând.15 COL.1 trebuie să fie ≠ 0. Valori: R11-C3(@Rd11_Col3_Tab22_F), R15-C1(@Rd15_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-017-F. Dacă Tab. 2.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.3 trebuie să fie ≠ 0. Valori: R15-C1(@Rd15_Col1_Tab21_F), R11-C3(@Rd11_Col3_Tab22_F)
+Cod eroare: 27-018. Dacă Tab. 2.2, Rând.11 COL.4 ≠ 0, atunci Tab. 2.1, Rând.36 COL.1 trebuie să fie ≠ 0. Valori: R11-C4(@Rd11_Col4_Tab22), R36-C1(@Rd36_Col1_Tab21)
+Cod eroare: 27-018. Dacă Tab. 2.1, Rând.36 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.4 trebuie să fie ≠ 0. Valori: R36-C1(@Rd36_Col1_Tab21), R11-C4(@Rd11_Col4_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-018-F. Dacă Tab. 2.2, Rând.11 COL.4 ≠ 0, atunci Tab. 2.1, Rând.36 COL.1 trebuie să fie ≠ 0. Valori: R11-C4(@Rd11_Col4_Tab22_F), R36-C1(@Rd36_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-018-F. Dacă Tab. 2.1, Rând.36 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.4 trebuie să fie ≠ 0. Valori: R36-C1(@Rd36_Col1_Tab21_F), R11-C4(@Rd11_Col4_Tab22_F)
+Cod eroare: 27-019. Dacă Tab. 2.2, Rând.11 COL.5 ≠ 0, atunci Tab. 2.1, Rând.30 COL.1 trebuie să fie ≠ 0. Valori: R11-C5(@Rd11_Col5_Tab22), R30-C1(@Rd30_Col1_Tab21)
+Cod eroare: 27-019. Dacă Tab. 2.1, Rând.30 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.5 trebuie să fie ≠ 0. Valori: R30-C1(@Rd30_Col1_Tab21), R11-C5(@Rd11_Col5_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-019-F. Dacă Tab. 2.2, Rând.11 COL.5 ≠ 0, atunci Tab. 2.1, Rând.30 COL.1 trebuie să fie ≠ 0. Valori: R11-C5(@Rd11_Col5_Tab22_F), R30-C1(@Rd30_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-019-F. Dacă Tab. 2.1, Rând.30 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.5 trebuie să fie ≠ 0. Valori: R30-C1(@Rd30_Col1_Tab21_F), R11-C5(@Rd11_Col5_Tab22_F)
+Cod eroare: 27-020. Dacă Tab. 2.2, Rând.11 COL.6 ≠ 0, atunci Tab. 2.1, Rând.49 COL.1 trebuie să fie ≠ 0. Valori: R11-C6(@Rd11_Col6_Tab22), R49-C1(@Rd49_Col1_Tab21)
+Cod eroare: 27-020. Dacă Tab. 2.1, Rând.49 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.6 trebuie să fie ≠ 0. Valori: R49-C1(@Rd49_Col1_Tab21), R11-C6(@Rd11_Col6_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-020-F. Dacă Tab. 2.2, Rând.11 COL.6 ≠ 0, atunci Tab. 2.1, Rând.49 COL.1 trebuie să fie ≠ 0. Valori: R11-C6(@Rd11_Col6_Tab22_F), R49-C1(@Rd49_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-020-F. Dacă Tab. 2.1, Rând.49 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.6 trebuie să fie ≠ 0. Valori: R49-C1(@Rd49_Col1_Tab21_F), R11-C6(@Rd11_Col6_Tab22_F)
+Cod eroare: 27-021. Dacă Tab. 2.2, Rând.11 COL.7 ≠ 0, atunci Tab. 2.1, Rând.37 COL.1 trebuie să fie ≠ 0. Valori: R11-C7(@Rd11_Col7_Tab22), R37-C1(@Rd37_Col1_Tab21)
+Cod eroare: 27-021. Dacă Tab. 2.1, Rând.37 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R37-C1(@Rd37_Col1_Tab21), R11-C7(@Rd11_Col7_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-021-F. Dacă Tab. 2.2, Rând.11 COL.7 ≠ 0, atunci Tab. 2.1, Rând.37 COL.1 trebuie să fie ≠ 0. Valori: R11-C7(@Rd11_Col7_Tab22_F), R37-C1(@Rd37_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-021-F. Dacă Tab. 2.1, Rând.37 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R37-C1(@Rd37_Col1_Tab21_F), R11-C7(@Rd11_Col7_Tab22_F)
+Cod eroare: 27-022. Dacă Tab. 2.2, Rând.11 COL.8 ≠ 0, atunci Tab. 2.1, Rând.38 COL.1 trebuie să fie ≠ 0. Valori: R11-C8(@Rd11_Col8_Tab22), R38-C1(@Rd38_Col1_Tab21)
+Cod eroare: 27-022. Dacă Tab. 2.1, Rând.38 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R38-C1(@Rd38_Col1_Tab21), R11-C8(@Rd11_Col8_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-022-F. Dacă Tab. 2.2, Rând.11 COL.8 ≠ 0, atunci Tab. 2.1, Rând.38 COL.1 trebuie să fie ≠ 0. Valori: R11-C8(@Rd11_Col8_Tab22_F), R38-C1(@Rd38_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-022-F. Dacă Tab. 2.1, Rând.38 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R38-C1(@Rd38_Col1_Tab21_F), R11-C8(@Rd11_Col8_Tab22_F)
+Cod eroare: 27-023. Dacă Tab. 2.2, Rând.11 COL.8 ≠ 0, atunci Tab. 2.1, Rând.45 COL.1 trebuie să fie ≠ 0. Valori: R11-C8(@Rd11_Col8_Tab22), R45-C1(@Rd45_Col1_Tab21)
+Cod eroare: 27-023. Dacă Tab. 2.1, Rând.45 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R45-C1(@Rd45_Col1_Tab21), R11-C8(@Rd11_Col8_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-023-F. Dacă Tab. 2.2, Rând.11 COL.8 ≠ 0, atunci Tab. 2.1, Rând.45 COL.1 trebuie să fie ≠ 0. Valori: R11-C8(@Rd11_Col8_Tab22_F), R45-C1(@Rd45_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-023-F. Dacă Tab. 2.1, Rând.45 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R45-C1(@Rd45_Col1_Tab21_F), R11-C8(@Rd11_Col8_Tab22_F)
+Cod eroare: 27-024. Dacă Tab. 2.2, Rând.11 COL.9 ≠ 0, atunci Tab. 2.1, Rând.50 COL.1 trebuie să fie ≠ 0. Valori: R11-C9(@Rd11_Col9_Tab22), R50-C1(@Rd50_Col1_Tab21)
+Cod eroare: 27-024. Dacă Tab. 2.1, Rând.50 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.9 trebuie să fie ≠ 0. Valori: R50-C1(@Rd50_Col1_Tab21), R11-C9(@Rd11_Col9_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-024-F. Dacă Tab. 2.2, Rând.11 COL.9 ≠ 0, atunci Tab. 2.1, Rând.50 COL.1 trebuie să fie ≠ 0. Valori: R11-C9(@Rd11_Col9_Tab22_F), R50-C1(@Rd50_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-024-F. Dacă Tab. 2.1, Rând.50 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.9 trebuie să fie ≠ 0. Valori: R50-C1(@Rd50_Col1_Tab21_F), R11-C9(@Rd11_Col9_Tab22_F)
+Cod eroare: 27-025. Dacă Tab. 2.2, Rând.11 COL.11 ≠ 0, atunci Tab. 2.1, Rând.52 COL.1 trebuie să fie ≠ 0. Valori: R11-C11(@Rd11_Col11_Tab22), R52-C1(@Rd52_Col1_Tab21)
+Cod eroare: 27-025. Dacă Tab. 2.1, Rând.52 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R52-C1(@Rd52_Col1_Tab21), R11-C11(@Rd11_Col11_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-025-F. Dacă Tab. 2.2, Rând.11 COL.11 ≠ 0, atunci Tab. 2.1, Rând.52 COL.1 trebuie să fie ≠ 0. Valori: R11-C11(@Rd11_Col11_Tab22_F), R52-C1(@Rd52_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-025-F. Dacă Tab. 2.1, Rând.52 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R52-C1(@Rd52_Col1_Tab21_F), R11-C11(@Rd11_Col11_Tab22_F)
+Cod eroare: 27-026. Dacă Tab. 2.2, Rând.11 COL.12 ≠ 0, atunci Tab. 2.1, Rând.55 COL.1 trebuie să fie ≠ 0. Valori: R11-C12(@Rd11_Col12_Tab22), R55-C1(@Rd55_Col1_Tab21)
+Cod eroare: 27-026. Dacă Tab. 2.1, Rând.55 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.12 trebuie să fie ≠ 0. Valori: R55-C1(@Rd55_Col1_Tab21), R11-C12(@Rd11_Col12_Tab22)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-026-F. Dacă Tab. 2.2, Rând.11 COL.12 ≠ 0, atunci Tab. 2.1, Rând.55 COL.1 trebuie să fie ≠ 0. Valori: R11-C12(@Rd11_Col12_Tab22_F), R55-C1(@Rd55_Col1_Tab21_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-026-F. Dacă Tab. 2.1, Rând.55 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.12 trebuie să fie ≠ 0. Valori: R55-C1(@Rd55_Col1_Tab21_F), R11-C12(@Rd11_Col12_Tab22_F)
+Cod eroare: 27-030. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R21-C1(@Rd21_Col1)
+Cod eroare: 27-030. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R7-C1(@Rd7_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-030-F. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1_F), R21-C1(@Rd21_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-030-F. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_F), R7-C1(@Rd7_Col1_F)
+Cod eroare: 27-031. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R11-C2(@Rd11_Col2)
+Cod eroare: 27-031. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2), R7-C1(@Rd7_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-031-F. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1_F), R11-C2(@Rd11_Col2_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-031-F. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2_F), R7-C1(@Rd7_Col1_F)
+Cod eroare: 27-032. Dacă Tab. 1.1.1, Rând.8 COL.1 ≠ 0, atunci Tab. 2.1, Rând.39 COL.1 trebuie să fie ≠ 0. Valori: R8-C1(@Rd8_Col1), R39-C1(@Rd39_Col1)
+Cod eroare: 27-032. Dacă Tab. 2.1, Rând.39 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.8 COL.1 trebuie să fie ≠ 0. Valori: R39-C1(@Rd39_Col1), R8-C1(@Rd8_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-032-F. Dacă Tab. 1.1.1, Rând.8 COL.1 ≠ 0, atunci Tab. 2.1, Rând.39 COL.1 trebuie să fie ≠ 0. Valori: R8-C1(@Rd8_Col1_F), R39-C1(@Rd39_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-032-F. Dacă Tab. 2.1, Rând.39 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.8 COL.1 trebuie să fie ≠ 0. Valori: R39-C1(@Rd39_Col1_F), R8-C1(@Rd8_Col1_F)
+Cod eroare: 27-034. Dacă Tab. 1.1.1, Rând.9 COL.1 ≠ 0, atunci Tab. 2.1, Rând.46 COL.1 trebuie să fie ≠ 0. Valori: R9-C1(@Rd9_Col1), R46-C1(@Rd46_Col1)
+Cod eroare: 27-034. Dacă Tab. 2.1, Rând.46 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.9 COL.1 trebuie să fie ≠ 0. Valori: R46-C1(@Rd46_Col1), R9-C1(@Rd9_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-034-F. Dacă Tab. 1.1.1, Rând.9 COL.1 ≠ 0, atunci Tab. 2.1, Rând.46 COL.1 trebuie să fie ≠ 0. Valori: R9-C1(@Rd9_Col1_F), R46-C1(@Rd46_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-034-F. Dacă Tab. 2.1, Rând.46 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.9 COL.1 trebuie să fie ≠ 0. Valori: R46-C1(@Rd46_Col1_F), R9-C1(@Rd9_Col1_F)
+Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R10-C1(@Rd10_Col1), R21-C1(@Rd21_Col1)
+Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R10-C1(@Rd10_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-037-F. Dacă Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R10-C1(@Rd10_Col1_F), R21-C1(@Rd21_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-037-F. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_F), R10-C1(@Rd10_Col1_F)
+Cod eroare: 27-029. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R20-C1(@Rd20_Col1)
+Cod eroare: 27-029. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R7-C1(@Rd7_Col1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-029-F. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1_F), R20-C1(@Rd20_Col1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-029-F. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1_F), R7-C1(@Rd7_Col1_F)
+Cod eroare: 27-036. Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≥ Tab. 1.1.1, Rând.11 COL.1. Valori: R10-C1(@CAP111_R10_C1), R11-C1(@CAP111_R11_C1)
+Cod eroare: 27-051. Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≥ Tab. 1.1.1, Rând.18 COL.1. Valori: R17-C1(@CAP111_R17_C1), R18-C1(@CAP111_R18_C1)
+Raion: @CAP_CUATM_FILIAL - Atenție: 27-036-F. Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≥ Tab. 1.1.1, Rând.11 COL.1. Valori: R10-C1(@CAP111_R10_C1_F), R11-C1(@CAP111_R11_C1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-051-F. Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≥ Tab. 1.1.1, Rând.18 COL.1. Valori: R17-C1(@CAP111_R17_C1_F), R18-C1(@CAP111_R18_C1_F)
+Raion: @CAP_CUATM_FILIAL - Atenție: 27-033-F. Tab. 1.1.1, Rând.8 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R8-C1(@CAP111_R8_C1_F), R11-C8(@CAP22_R11_C8_F)
+Raion: @CAP_CUATM_FILIAL - Atenție: 27-035-F. Tab. 1.1.1, Rând.9 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R9-C1(@CAP111_R9_C1_F), R11-C8(@CAP22_R11_C8_F)
+Raion: @CAP_CUATM_FILIAL - Atenție: 27-038-F. Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 2.1, Rând.53 COL.1 trebuie să fie ≠ 0. Valori: R10-C1(@CAP111_R10_C1_F), R53-C1(@CAP21_R53_C1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-057-F. Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R21-C1(@CAP111_R21_C1_F), R11-C11(@CAP22_R11_C11_F)
+Atenție: 27-033. Tab. 1.1.1, Rând.8 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R8-C1(@CAP111_R8_C1), R11-C8(@CAP22_R11_C8)
+Atenție: 27-035. Tab. 1.1.1, Rând.9 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R9-C1(@CAP111_R9_C1), R11-C8(@CAP22_R11_C8)
+Atenție: 27-038. Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 2.1, Rând.53 COL.1 trebuie să fie ≠ 0. Valori: R10-C1(@CAP111_R10_C1), R53-C1(@CAP21_R53_C1)
+Cod eroare: 27-057. Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R21-C1(@CAP111_R21_C1), R11-C11(@CAP22_R11_C11)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-047-F. Tab. 1.1.1, Rând.14 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R14-C1(@CAP111_R14_C1_F), R11-C7(@CAP22_R11_C7_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-048-F. Tab. 1.1.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.1, Rând.55 COL.1 trebuie să fie ≠ 0. Valori: R15-C1(@CAP111_R15_C1_F), R55-C1(@CAP21_R55_C1_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-049-F. Tab. 1.1.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.12 trebuie să fie ≠ 0. Valori: R15-C1(@CAP111_R15_C1_F), R11-C12(@CAP22_R11_C12_F)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-050-F. Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 2.1, Rând.56 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@CAP111_R17_C1_F), R56-C1(@CAP21_R56_C1_F)
+Cod eroare: 27-047. Tab. 1.1.1, Rând.14 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R14-C1(@CAP111_R14_C1), R11-C7(@CAP22_R11_C7)
+Cod eroare: 27-048. Tab. 1.1.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.1, Rând.55 COL.1 trebuie să fie ≠ 0. Valori: R15-C1(@CAP111_R15_C1), R55-C1(@CAP21_R55_C1)
+Cod eroare: 27-049. Tab. 1.1.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.12 trebuie să fie ≠ 0. Valori: R15-C1(@CAP111_R15_C1), R11-C12(@CAP22_R11_C12)
+Cod eroare: 27-050. Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 2.1, Rând.56 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@CAP111_R17_C1), R56-C1(@CAP21_R56_C1)
+Cod eroare: 27-046. Tab. 1.1.1, Rând.14 COL.1 ≠ 0, atunci Tab. 2.1, Rând.42 COL.1 trebuie să fie ≠ 0. Valori: R14-C1(@CAP111_R14_C1), R42-C1(@CAP21_R42_C1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-046-F. Tab. 1.1.1, Rând.14 COL.1 ≠ 0, atunci Tab. 2.1, Rând.42 COL.1 trebuie să fie ≠ 0. Valori: R14-C1(@CAP111_R14_C1_F), R42-C1(@CAP21_R42_C1_F)
+Cod eroare: 27-045. Tab. 1.1.1, Rând.13 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R13-C1(@CAP111_R13_C1), R11-C7(@CAP22_R11_C7)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-045-F. Tab. 1.1.1, Rând.13 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R13-C1(@CAP111_R13_C1_F), R11-C7(@CAP22_R11_C7_F)
+Cod eroare: 27-043. Tab. 1.1.1, Rând.12 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R12-C1(@CAP111_R12_C1), R11-C11(@CAP22_R11_C11)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-043-F. Tab. 1.1.1, Rând.12 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R12-C1(@CAP111_R12_C1_F), R11-C11(@CAP22_R11_C11_F)
+Cod eroare: 27-042. Tab. 1.1.1, Rând.12 COL.1 ≠ 0, atunci Tab. 2.1, Rând.53 COL.1 trebuie să fie ≠ 0. Valori: R12-C1(@CAP111_R12_C1), R53-C1(@CAP21_R53_C1)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-042-F. Tab. 1.1.1, Rând.12 COL.1 ≠ 0, atunci Tab. 2.1, Rând.53 COL.1 trebuie să fie ≠ 0. Valori: R12-C1(@CAP111_R12_C1_F), R53-C1(@CAP21_R53_C1_F)
+Cod eroare: 27-041. Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 2.2 Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R11-C1(@CAP111_R11_C1), R11-C11(@CAP22_R11_C11)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-041-F. Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 2.2 Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R11-C1(@CAP111_R11_C1_F), R11-C11(@CAP22_R11_C11_F)
+Cod eroare: 27-039. Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 2.2 Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R10-C1(@CAP111_R10_C1), R11-C11(@CAP22_R11_C11)
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-039-F. Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 2.2 Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R10-C1(@CAP111_R10_C1_F), R11-C11(@CAP22_R11_C11_F)
+Cod eroare: 27-012. Dacă CAP21 Rând.21 col.1 ≠ 0, atunci CAP111 Rând.20 col.1 trebuie să fie ≠ 0. Valoare CAP21 R21 col.1: ' + CAP21_R21 + 
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-012-F. Dacă CAP21 Rând.21 col.1 ≠ 0, atunci CAP111 Rând.20 col.1 trebuie să fie ≠ 0. Valoare CAP21 R21 col.1: ' + CAP21_R21_F + 
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-011-F. Dacă CAP.2.1 Rând.54 col.1 ≠ 0, atunci CAP.1.1 Rând.21 col.1 trebuie să fie ≠ 0. Valoare CAP.2.1 R54 col.1: ' + CAP21_R54_F + 
+Cod eroare: 27-011. Dacă CAP.2.1 Rând.54 col.1 ≠ 0, atunci CAP.1.1 Rând.21 col.1 trebuie să fie ≠ 0. Valoare CAP.2.1 R54 col.1: ' + CAP21_R54 + 
+Cod eroare: 27-004. Valoarea CAP21 Rând.36 col.1 trebuie să fie egală cu CAP22 Rând.11 col.4. Valoarea găsită: ' + CAP21_R36 + 
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-004-F. Valoarea CAP21 Rând.36 col.1 trebuie să fie egală cu CAP22 Rând.11 col.4. Valoarea găsită: ' + CAP21_R36_F + 
+Raion: @CAP_NUM_FILIAL - Cod eroare: 45-020.  - Dacă există Nr. [@CAP_NUM_FILIAL], atunci trebuie să existe și cod CUATM.
+Codul CUATM: @CAP_CUATM_FILIAL este duplicat. Fiecare cod CUATM trebuie să fie unic.
+Cod eroare: 27-001. Valoarea CAP.2.1 Rând.15 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.3. Valoarea găsită: ' + CAP21_R15 + 
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-001-F. Valoarea CAP.2.1 Rând.15 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.3. Valoarea găsită: ' + CAP21_R15_F + 
+Cod eroare: 27-028. [@col] - Tab.1.1, rd.5 pe COL (@col), Rînd.(5) COL(1,3,4,5,6,8) = Rînd.(1+2-4)) COL(1,3,4,5,6,8), @CAP1_R5_C <> @result_33_001
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-028-F. [@col_FILIAL] - COL(@col_FILIAL), Rînd.(5) COL(1,3,4,5,6,8) = Rînd.(1+2-4) COL(1,3,4,5,6,8), @R5_C <> @result_33_001_F 
+Cod eroare: 27-060. Dacă Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1 ≠ 0, atunci Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 trebuie să fie ≠ 0.
+Cod eroare: 27-060. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1 trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-060-F. Dacă Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1_F ≠ 0, atunci Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2_F trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-060-F. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2_F ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1_F trebuie să fie ≠ 0.
+Cod eroare: 33-004. [@col] - Tab.1.1.1, rd.7 pe COL (@col), COL(1) ≠ 0 atunci Tab 1.1.1, Rînd.(20) COL(1) ≠ 0 și invers , @CAP11_R7_C - @CAP11_R20_C ≠ 0
+Cod eroare: 33-004. [@col] - Tab.1.1.1, rd.7 pe COL (@col), COL(1) ≠ 0 atunci Tab 1.1.1, Rînd.(20) COL(1) ≠ 0 și invers , @CAP11_R7_C - @CAP11_R20_C ≠ 0
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 33-004-F. [@col_FILIAL] - COL(@col_FILIAL), Dacă Rînd.(7) COL(1) ≠ 0 atunci Rînd.(20) COL(1) ≠ 0, @R7_C <> @R20_C
+Cod eroare: 27-059. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 ≠ 0, atunci Tab. 1.1, Rând.3 COL (@colTab11) = @valueTab11_R3 trebuie să fie ≠ 0.
+Cod eroare: 27-059. Dacă Tab. 1.1, Rând.3 COL (@colTab11) = @valueTab11_R3 ≠ 0, atunci Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-059-F. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2_F ≠ 0, atunci Tab. 1.1, Rând.3 COL (@colTab11) = @valueTab11_R3_F trebuie să fie ≠ 0.
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-059-F. Dacă Tab. 1.1, Rând.3 COL (@colTab11) = @valueTab11_R3_F ≠ 0, atunci Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2_F trebuie să fie ≠ 0.
+Cod eroare: 27-059. Dacă Tab.1.1 rd.2 ' + col + ' ≠ 0, atunci Tab.1.1 rd.3 ' + col + ' trebuie să fie ≠ 0 și invers. Valoare rd.2: ' + row2Value + 
+Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-059-F. Dacă Tab.1.1 rd.2 ' + col + ' ≠ 0, atunci Tab.1.1 rd.3 ' + col + ' trebuie să fie ≠ 0 și invers. Valoare rd.2: ' + row2Value_F + 
+Error code: @error_code

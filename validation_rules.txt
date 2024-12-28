@@ -1,66 +1,10 @@
-In CIS2 
-rind 23Col1
-autosuma se calculeaza 
-setValueIfNonZero(R23_C1, Number(R2_C1.val())  + Number(R4_C1.val())  + Number(R5_C1.val())  + Number(R7_C1.val())  +
-                              Number(R9_C1.val())  + Number(R10_C1.val()) + Number(R13_C1.val()) + Number(R14_C1.val()) +
-                              Number(R15_C1.val()) + Number(R17_C1.val()) + Number(R18_C1.val()) + Number(R21_C1.val()) + Number(R22_C1.val()));
-    
 
-    la fisc 
-    Tab. 2.1 rd. 23 col. 1 = Tab. 2.1 (rd.1 + rd.6 + rd.11)
-    Dupa ultima lista a autosumei care ati dat. 
+exemplu toate din 
+Drupal.t('Cod eroare: 27-058. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.', {
+
+final 
+
+Cod eroare: 27-058. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.'
 
 
-    Verificarea raportului din fisc cu cis2 
-
-    27-006
-27-006	Tab. 2.1 col.1 rd. 49 = Tab. 2.2 col. 6 rd.11
-
-Am introdus in -- Tab. 2.1 col.1 rd. 49 la fisc - 49 
-si am salvate - verific 
-am urmatoarea 
-
-Tabel 2.1 Rînd. 49 col.1 - Cod eroare: 27-006. Valoarea CAP.2.1 Rând.49 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.6. Valoarea găsită: 49 -- 0
-Tabel 2.2 Rînd. 1 col.126 - Cod eroare: 27-020. Dacă Tab. 2.1, Rând.49 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.6 trebuie să fie ≠ 0. Valori: R49-C1(49), R11-C6(0)
-
-in CIS2 
-
-4137258753
-	
-27-006
-	
-Tab. 2.1 col.1 rd. 49 = Tab. 2.2 col. 6 rd.11
-	
-49 <> 0
-4137258753
-	
-27-020
-	
-Tab. 2.2, Daca Rind.11 COL 6≠0, atunci cap.2.1 rd. 49 COL1≠0 și invers
-	
-Completati Tab.2.2 Rind 11 Col6
-
-
-Acum in introdus  Tab. 2.2 col. 6 rd.1 - 49 si la verificare am urmatoarea eroare 
-Tabel 2.2 Rînd. 1 col.18 - Cod eroare: 27-073. Dacă Tab. 2.2, Rând.1 COL.C6 ≠ 0, atunci Tab. 2.2, Rând.2 COL.C6 trebuie să fie ≠ 0. Valori: R1-CC6(49), R2-CC6(0)
-
-in CIS2 la fel. 
-
-december0224	7e700b6c	Commit to december0224 by vitalie.bancu at 2024-12-02 14:56 - Added new report 29_agr24 - 29_AGR_028.js	
-
-    Sync with branch View changes 
-
-december0424	eb67cb75	Commit to december0424 by vitalie.bancu at 2024-12-04 15:47 - Added new report 29_agr24 - 29_AGR_030.js	
-
-    Sync with branch View changes 
-
-december1024	b8577d68	Commit to december1024 by vitalie.bancu at 2024-12-10 11:18 - Modificare raportul 29 Agro Anual - partea de HTML (doua cuvinte modificate)	
-
-    Sync with branch View changes 
-
-december1024
-
-december2624	08e8908e	Commit to december2624 by vitalie.bancu at 2024-12-26 10:53 - Modificarea raportului 29_agr29 - 29_AGR_033.js si adaugarea raportului nou 24_agr_24 - 24_Agro_24_064.js
-
-
-december26241	9b3e6ab5	Commit to december26241 by vitalie.bancu at 2024-12-26 13:16 - Modificarea raportului 29_agr29 - 29_AGR_033.js si adaugarea raportului nou 24_agr_24 - 24_Agro_24_064.js
+Toate sa fie in lista 
