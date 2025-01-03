@@ -8,3 +8,14 @@ Cod eroare: 27-058. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1
 
 
 Toate sa fie in lista 
+
+
+ Am un clasificator SICPE pe platforma
+
+
+in excel cind chem <?php return classifiers_get_list('sicpe'); ?>
+
+
+ as putea apela acest clasificator in js cu o conditie where 
+
+ de exemplu sa preia doar coduri de la 7000 pina la 7055 si sa incarce in aceasta variabila
