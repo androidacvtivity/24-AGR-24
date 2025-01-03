@@ -4198,17 +4198,17 @@ function validate27_060(values) {
         }
 
         // Verificare inversă: TAB. 1.1 Rând.2 → TAB. 1.1 Rând.1
-        if (valueTab11_R2 !== 0 && valueTab11_R1 === 0) {
-            webform.errors.push({
-                'fieldName': 'CAP11_R1_' + colTab11,
-                'weight': 19,
-                'msg': Drupal.t('Cod eroare: 27-060. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1 trebuie să fie ≠ 0.', {
-                    '@colTab11': colTab11,
-                    '@valueTab11_R1': valueTab11_R1,
-                    '@valueTab11_R2': valueTab11_R2
-                })
-            });
-        }
+        // if (valueTab11_R2 !== 0 && valueTab11_R1 === 0) {
+        //     webform.errors.push({
+        //         'fieldName': 'CAP11_R1_' + colTab11,
+        //         'weight': 19,
+        //         'msg': Drupal.t('Cod eroare: 27-060. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1 trebuie să fie ≠ 0.', {
+        //             '@colTab11': colTab11,
+        //             '@valueTab11_R1': valueTab11_R1,
+        //             '@valueTab11_R2': valueTab11_R2
+        //         })
+        //     });
+        // }
     }
 
     // FILIAL Validation
