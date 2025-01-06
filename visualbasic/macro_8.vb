@@ -71,3 +71,20 @@ Sub versiune2()
     MsgBox "Inserarea ?i colorarea textului în coloana H au fost finalizate!", vbInformation
 End Sub
 
+' Logica existaente nu trebuie sa fie modificata 
+
+' ' Noua logică:
+' Verifică dacă valoarea din coloana A:
+' Are lungimea 9 sau 10.
+' Ultimele 2 caractere din coloana A sunt egale cu primele 2 caractere din coloana D.
+' Dacă toate condițiile sunt îndeplinite:
+' Inserează textul "FILIALA - " si codul din colA în coloana K cu ultimile 2 caractere colorate in rosu.
+' Colorează celula din coloana K în galben
+
+' Logica existaenta nu trebuie sa fie modificata 
+'  Noua logică:
+
+' Daca Ultimele 2 caractere din coloana A sunt egale cu primele 2 caractere din coloana D
+' Se coloreaza in rosu 
+' si Inserează textul "FILIALA - " si codul din colA în coloana K cu ultimile 2 caractere colorate in rosu.
+' 
