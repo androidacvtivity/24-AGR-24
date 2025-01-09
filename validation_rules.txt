@@ -19,3 +19,83 @@ in excel cind chem <?php return classifiers_get_list('sicpe'); ?>
  as putea apela acest clasificator in js cu o conditie where 
 
  de exemplu sa preia doar coduri de la 7000 pina la 7055 si sa incarce in aceasta variabila
+
+
+Modifica validarea 
+
+function validate27_022(values) {
+    var col8 = "C8";
+    var col1 = "C1";
+
+    // Main Data Validation
+    var Rd11_Col8_Tab22 = !isNaN(Number(values["CAP22_R11_" + col8])) ? Number(values["CAP22_R11_" + col8]) : 0;
+    var Rd38_Col1_Tab21 = !isNaN(Number(values["CAP21_R38_" + col1])) ? Number(values["CAP21_R38_" + col1]) : 0;
+
+    // If Rd.11 COL.8 in Tab. 2.2 ≠ 0, then Rd.38 COL.1 in Tab. 2.1 ≠ 0
+    if (Rd11_Col8_Tab22 !== 0 && Rd38_Col1_Tab21 === 0) {
+        webform.errors.push({
+            'fieldName': 'CAP21_R38_' + col1,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-022. Dacă Tab. 2.2, Rând.11 COL.8 ≠ 0, atunci Tab. 2.1, Rând.38 COL.1 trebuie să fie ≠ 0. Valori: R11-C8(@Rd11_Col8_Tab22), R38-C1(@Rd38_Col1_Tab21)', {
+                '@Rd11_Col8_Tab22': Rd11_Col8_Tab22,
+                '@Rd38_Col1_Tab21': Rd38_Col1_Tab21
+            })
+        });
+    }
+
+    // If Rd.38 COL.1 in Tab. 2.1 ≠ 0, then Rd.11 COL.8 in Tab. 2.2 ≠ 0
+    if (Rd38_Col1_Tab21 !== 0 && Rd11_Col8_Tab22 === 0) {
+        webform.errors.push({
+            'fieldName': 'CAP22_R11_' + col8,
+            'weight': 19,
+            'msg': Drupal.t('Cod eroare: 27-022. Dacă Tab. 2.1, Rând.38 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R38-C1(@Rd38_Col1_Tab21), R11-C8(@Rd11_Col8_Tab22)', {
+                '@Rd38_Col1_Tab21': Rd38_Col1_Tab21,
+                '@Rd11_Col8_Tab22': Rd11_Col8_Tab22
+            })
+        });
+    }
+
+    // FILIAL Validation
+    if (values.CAP_NUM_FILIAL) {
+        for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
+            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
+
+            var Rd11_Col8_Tab22_F = values["CAP22_R11_" + col8 + "_FILIAL"] && !isNaN(Number(values["CAP22_R11_" + col8 + "_FILIAL"][j]))
+                ? Number(values["CAP22_R11_" + col8 + "_FILIAL"][j])
+                : 0;
+            var Rd38_Col1_Tab21_F = values["CAP21_R38_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP21_R38_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP21_R38_" + col1 + "_FILIAL"][j])
+                : 0;
+
+            // If Rd.11 COL.8 FILIAL ≠ 0 in Tab. 2.2, then Rd.38 COL.1 FILIAL ≠ 0 in Tab. 2.1
+            if (Rd11_Col8_Tab22_F !== 0 && Rd38_Col1_Tab21_F === 0) {
+                webform.errors.push({
+                    'fieldName': 'CAP21_R38_' + col1 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-022-F. Dacă Tab. 2.2, Rând.11 COL.8 ≠ 0, atunci Tab. 2.1, Rând.38 COL.1 trebuie să fie ≠ 0. Valori: R11-C8(@Rd11_Col8_Tab22_F), R38-C1(@Rd38_Col1_Tab21_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd11_Col8_Tab22_F': Rd11_Col8_Tab22_F,
+                        '@Rd38_Col1_Tab21_F': Rd38_Col1_Tab21_F
+                    })
+                });
+            }
+
+            // If Rd.38 COL.1 FILIAL ≠ 0 in Tab. 2.1, then Rd.11 COL.8 FILIAL ≠ 0 in Tab. 2.2
+            if (Rd38_Col1_Tab21_F !== 0 && Rd11_Col8_Tab22_F === 0) {
+                webform.errors.push({
+                    'fieldName': 'CAP22_R11_' + col8 + '_FILIAL',
+                    'index': j,
+                    'weight': 19,
+                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-022-F. Dacă Tab. 2.1, Rând.38 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R38-C1(@Rd38_Col1_Tab21_F), R11-C8(@Rd11_Col8_Tab22_F)', {
+                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+                        '@Rd38_Col1_Tab21_F': Rd38_Col1_Tab21_F,
+                        '@Rd11_Col8_Tab22_F': Rd11_Col8_Tab22_F
+                    })
+                });
+            }
+        }
+    }
+}
+
+ 27-022	Tab. 2.2, Daca Rind.11 COL 8≠0, atunci tab.2.1 ( rd. 38 COL1≠0 sau rd. 45 COL1≠0 )  și invers
