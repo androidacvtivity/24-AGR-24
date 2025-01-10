@@ -1,0 +1,143 @@
+DECLARE -- ====================================================================
+
+CURSOR C IS
+
+
+SELECT 
+CUIIO,
+CUIIO_VERS,
+TRIM(DENUMIRE) DENUMIRE, 
+TRIM (IDNO) IDNO
+
+FROM (
+SELECT *
+FROM (
+    -- Partea 1: Rândurile care satisfac rela?ia substring-string
+    SELECT 
+        A.*, 
+        1 AS SORT_ORDER
+    FROM USER_BANCU.KATALOG_45_1063 A
+    WHERE CUIIO IN (
+        SELECT DISTINCT A.CUIIO
+        FROM USER_BANCU.KATALOG_45_1063 A
+        JOIN USER_BANCU.KATALOG_45_1063 B
+        ON A.CUIIO <> B.CUIIO
+        AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+        UNION
+        SELECT DISTINCT B.CUIIO
+        FROM USER_BANCU.KATALOG_45_1063 A
+        JOIN USER_BANCU.KATALOG_45_1063 B
+        ON A.CUIIO <> B.CUIIO
+        AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+    )
+    
+    UNION ALL
+    
+    -- Rând gol pentru separare între Partea 1 ?i Partea 2
+    SELECT 
+        NULL AS CUIIO, NULL AS CUIIO_VERS, NULL AS DENUMIRE, NULL AS CUATM,
+        NULL AS CFP, NULL AS CFOJ, NULL AS COCM, NULL AS CAEM2, NULL AS CAEM, 
+        NULL AS IDNO, 2 AS SORT_ORDER
+    FROM DUAL
+    
+    UNION ALL
+    
+    -- Partea 2.1: Rândurile din Partea 2 cu lungimea CUIIO egala cu 9 sau 10
+    SELECT 
+        A.*, 
+        3 AS SORT_ORDER
+    FROM USER_BANCU.KATALOG_45_1063 A
+    WHERE LENGTH(TO_CHAR(A.CUIIO)) IN (9, 10)
+      AND CUIIO NOT IN (
+          SELECT DISTINCT A.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+          UNION
+          SELECT DISTINCT B.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+      )
+      
+    UNION ALL
+    
+    -- Rând gol pentru separare între Partea 2.1 ?i Partea 2.2
+    SELECT 
+        NULL AS CUIIO, 
+        NULL AS CUIIO_VERS, 
+        NULL AS DENUMIRE, 
+        NULL AS CUATM,
+        NULL AS CFP, 
+        NULL AS CFOJ, 
+        NULL AS COCM, 
+        NULL AS CAEM2, 
+        NULL AS CAEM, 
+        NULL AS IDNO, 
+        4 AS SORT_ORDER
+        
+        
+        
+    FROM DUAL
+    
+    UNION ALL
+    
+    -- Partea 2.2: Celelalte rânduri din Partea 2 (restul, sortate descrescator)
+    SELECT 
+        A.*, 
+        5 AS SORT_ORDER
+    FROM USER_BANCU.KATALOG_45_1063 A
+    WHERE LENGTH(TO_CHAR(A.CUIIO)) NOT IN (9, 10)
+      AND CUIIO NOT IN (
+          SELECT DISTINCT A.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+          UNION
+          SELECT DISTINCT B.CUIIO
+          FROM USER_BANCU.KATALOG_45_1063 A
+          JOIN USER_BANCU.KATALOG_45_1063 B
+          ON A.CUIIO <> B.CUIIO
+          AND TO_CHAR(B.CUIIO) LIKE TO_CHAR(A.CUIIO) || '%'
+      )
+)
+ORDER BY SORT_ORDER, 
+         CASE WHEN SORT_ORDER = 1 THEN SUBSTR(CUIIO, 1, 10) END,
+         CASE WHEN SORT_ORDER = 1 THEN LENGTH(CUIIO) END,
+         CASE WHEN SORT_ORDER IN (3, 5) THEN CUIIO END DESC
+         
+         )
+
+
+WHERE 
+
+CUIIO IS NOT NULL 
+
+AND IDNO IS NOT NULL 
+            
+            --------------------------------
+            ;
+
+BEGIN -- ======================================================================
+FOR CR IN C
+LOOP
+UPDATE CIS2.RENIM SET
+
+DENUMIRE = CR.DENUMIRE,
+--CUATM = CR.CUATM,
+--CFP = CR.CFP,
+--CFOJ = CR.CFOJ,
+--CAEM2 = CR.CAEM2,
+IDNO = CR.IDNO
+
+WHERE
+CUIIO = CR.CUIIO 
+AND 
+CUIIO_VERS = CR.CUIIO_VERS;
+END LOOP;
+END;
+
+---------------------------
