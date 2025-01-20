@@ -13,7 +13,12 @@ SELECT
              IDNO
 
 
-FROM USER_BANCU.VW_KAT_45_1063 
+FROM USER_BANCU.VW_KAT_45_1063
+
+
+WHERE
+1=1
+--IDNO IS NULL 
 --------------------
 --WHERE
 --
