@@ -2421,33 +2421,38 @@ function validate27_034(values) {
     }
 }
 
+//--------------------------------------------------
+
+// 27-037
+// Tab. 1.1.1: Dacă Rd.11 COL.1 ≠ 0, atunci Rd.21 COL.1 ≠ 0 și invers (ERROR)
+
 function validate27_037(values) {
     var col1 = "C1";
 
     // Main Data Validation
-    var Rd10_Col1 = !isNaN(Number(values["CAP111_R10_" + col1])) ? Number(values["CAP111_R10_" + col1]) : 0;
+    var Rd11_Col1 = !isNaN(Number(values["CAP111_R11_" + col1])) ? Number(values["CAP111_R11_" + col1]) : 0;
     var Rd21_Col1 = !isNaN(Number(values["CAP111_R21_" + col1])) ? Number(values["CAP111_R21_" + col1]) : 0;
 
-    // If Rd.10 COL.1 ≠ 0, then Rd.21 COL.1 ≠ 0
-    if (Rd10_Col1 !== 0 && Rd21_Col1 === 0) {
-        webform.warnings.push({
-            'fieldName': 'CAP111_R21_' + col1,
-            'weight': 19,
-            'msg': Drupal.t('Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R10-C1(@Rd10_Col1), R21-C1(@Rd21_Col1)', {
-                '@Rd10_Col1': Rd10_Col1,
+    // If Rd.11 COL.1 ≠ 0, then Rd.21 COL.1 ≠ 0
+    if (Rd11_Col1 !== 0 && Rd21_Col1 === 0) {
+        webform.errors.push({
+            fieldName: 'CAP111_R21_' + col1,
+            weight: 19,
+            msg: Drupal.t('Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1), R21-C1(@Rd21_Col1)', {
+                '@Rd11_Col1': Rd11_Col1,
                 '@Rd21_Col1': Rd21_Col1
             })
         });
     }
 
-    // If Rd.21 COL.1 ≠ 0, then Rd.10 COL.1 ≠ 0
-    if (Rd21_Col1 !== 0 && Rd10_Col1 === 0) {
-        webform.warnings.push({
-            'fieldName': 'CAP111_R10_' + col1,
-            'weight': 19,
-            'msg': Drupal.t('Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R10-C1(@Rd10_Col1)', {
+    // If Rd.21 COL.1 ≠ 0, then Rd.11 COL.1 ≠ 0
+    if (Rd21_Col1 !== 0 && Rd11_Col1 === 0) {
+        webform.errors.push({
+            fieldName: 'CAP111_R11_' + col1,
+            weight: 19,
+            msg: Drupal.t('Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R11-C1(@Rd11_Col1)', {
                 '@Rd21_Col1': Rd21_Col1,
-                '@Rd10_Col1': Rd10_Col1
+                '@Rd11_Col1': Rd11_Col1
             })
         });
     }
@@ -2457,37 +2462,38 @@ function validate27_037(values) {
         for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
             var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
 
-            var Rd10_Col1_F = values["CAP111_R10_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R10_" + col1 + "_FILIAL"][j]))
-                ? Number(values["CAP111_R10_" + col1 + "_FILIAL"][j])
+            var Rd11_Col1_F = values["CAP111_R11_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R11_" + col1 + "_FILIAL"][j]))
+                ? Number(values["CAP111_R11_" + col1 + "_FILIAL"][j])
                 : 0;
+
             var Rd21_Col1_F = values["CAP111_R21_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R21_" + col1 + "_FILIAL"][j]))
                 ? Number(values["CAP111_R21_" + col1 + "_FILIAL"][j])
                 : 0;
 
-            // If Rd.10 COL.1 ≠ 0 in FILIAL, then Rd.21 COL.1 ≠ 0
-            if (Rd10_Col1_F !== 0 && Rd21_Col1_F === 0) {
-                webform.warnings.push({
-                    'fieldName': 'CAP111_R21_' + col1 + '_FILIAL',
-                    'index': j,
-                    'weight': 19,
-                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-037-F. Dacă Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R10-C1(@Rd10_Col1_F), R21-C1(@Rd21_Col1_F)', {
+            // If Rd.11 COL.1 ≠ 0 in FILIAL, then Rd.21 COL.1 ≠ 0
+            if (Rd11_Col1_F !== 0 && Rd21_Col1_F === 0) {
+                webform.errors.push({
+                    fieldName: 'CAP111_R21_' + col1 + '_FILIAL',
+                    index: j,
+                    weight: 19,
+                    msg: Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-037-F. Dacă Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1_F), R21-C1(@Rd21_Col1_F)', {
                         '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
-                        '@Rd10_Col1_F': Rd10_Col1_F,
+                        '@Rd11_Col1_F': Rd11_Col1_F,
                         '@Rd21_Col1_F': Rd21_Col1_F
                     })
                 });
             }
 
-            // If Rd.21 COL.1 ≠ 0 in FILIAL, then Rd.10 COL.1 ≠ 0
-            if (Rd21_Col1_F !== 0 && Rd10_Col1_F === 0) {
-                webform.warnings.push({
-                    'fieldName': 'CAP111_R10_' + col1 + '_FILIAL',
-                    'index': j,
-                    'weight': 19,
-                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-037-F. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_F), R10-C1(@Rd10_Col1_F)', {
+            // If Rd.21 COL.1 ≠ 0 in FILIAL, then Rd.11 COL.1 ≠ 0
+            if (Rd21_Col1_F !== 0 && Rd11_Col1_F === 0) {
+                webform.errors.push({
+                    fieldName: 'CAP111_R11_' + col1 + '_FILIAL',
+                    index: j,
+                    weight: 19,
+                    msg: Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-037-F. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_F), R11-C1(@Rd11_Col1_F)', {
                         '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
                         '@Rd21_Col1_F': Rd21_Col1_F,
-                        '@Rd10_Col1_F': Rd10_Col1_F
+                        '@Rd11_Col1_F': Rd11_Col1_F
                     })
                 });
             }
@@ -2683,7 +2689,7 @@ function validate27_036(values) {
     var CAP111_R11_C1 = !isNaN(Number(values["CAP111_R11_" + col1])) ? Number(values["CAP111_R11_" + col1]) : 0;
 
     if (CAP111_R10_C1 < CAP111_R11_C1) {
-        webform.warnings.push({
+        webform.errors.push({
             'fieldName': 'CAP111_R10_' + col1,
             'weight': 19,
             'msg': Drupal.t('Cod eroare: 27-036. Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≥ Tab. 1.1.1, Rând.11 COL.1. Valori: R10-C1(@CAP111_R10_C1), R11-C1(@CAP111_R11_C1)', {
@@ -2729,7 +2735,7 @@ function validate27_036_F(values) {
             : 0;
 
         if (CAP111_R10_C1_F < CAP111_R11_C1_F) {
-            webform.warnings.push({
+            webform.errors.push({
                 'fieldName': 'CAP111_R10_' + col1 + '_FILIAL',
                 'index': j,
                 'weight': 19,
