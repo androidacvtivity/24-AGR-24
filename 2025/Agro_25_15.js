@@ -1051,11 +1051,13 @@ function validate27_054(values) {
 
 
 //----------------------------------------------
-// 27-054.1
-// Tab. 1.1.1: Rd.20 COL.1 ≠ 0  =>  Tab. 2.1: Rd.21 COL.1 ≠ 0
+//----------------------------------------------
+// 27-054.1 (ERROR)
+// Tab. 1.1.1: Dacă Rd.20 COL.1 ≠ 0, atunci Tab. 1.1: Rd.3 COL.2 ≠ 0
 
 function validate27_054_1(values) {
     var col1 = "C1";
+    var col2 = "C2";
 
     // ======================
     // NIVEL TOTAL
@@ -1064,21 +1066,19 @@ function validate27_054_1(values) {
         ? Number(values["CAP111_R20_" + col1])
         : 0;
 
-    var Rd21_Col1 = !isNaN(Number(values["CAP21_R21_" + col1]))
-        ? Number(values["CAP21_R21_" + col1])
+    // Tab. 1.1, Rd.3, Col.2
+    var Rd3_Col2 = !isNaN(Number(values["CAP11_R3_" + col2]))
+        ? Number(values["CAP11_R3_" + col2])
         : 0;
 
-    // Rd.20 ≠ 0 => Rd.21 ≠ 0
-    if (Rd20_Col1 !== 0 && Rd21_Col1 === 0) {
+    // Rd.20 ≠ 0 => Rd.3 Col.2 ≠ 0
+    if (Rd20_Col1 !== 0 && Rd3_Col2 === 0) {
         webform.errors.push({
-            fieldName: 'CAP21_R21_' + col1,
+            fieldName: 'CAP11_R3_' + col2,
             weight: 19,
             msg: Drupal.t(
-                'Cod eroare: 27-054.1. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R21-C1(@r21)',
-                {
-                    '@r20': Rd20_Col1,
-                    '@r21': Rd21_Col1
-                }
+                'Cod eroare: 27-054.1. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1, Rând.3 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R3-C2(@r3)',
+                { '@r20': Rd20_Col1, '@r3': Rd3_Col2 }
             )
         });
     }
@@ -1099,31 +1099,29 @@ function validate27_054_1(values) {
                     ? Number(values["CAP111_R20_" + col1 + "_FILIAL"][j])
                     : 0;
 
-            var Rd21_Col1_F =
-                values["CAP21_R21_" + col1 + "_FILIAL"] &&
-                    !isNaN(Number(values["CAP21_R21_" + col1 + "_FILIAL"][j]))
-                    ? Number(values["CAP21_R21_" + col1 + "_FILIAL"][j])
+            var Rd3_Col2_F =
+                values["CAP11_R3_" + col2 + "_FILIAL"] &&
+                    !isNaN(Number(values["CAP11_R3_" + col2 + "_FILIAL"][j]))
+                    ? Number(values["CAP11_R3_" + col2 + "_FILIAL"][j])
                     : 0;
 
-            // Rd.20 ≠ 0 => Rd.21 ≠ 0 (FILIAL)
-            if (Rd20_Col1_F !== 0 && Rd21_Col1_F === 0) {
+            // Rd.20 ≠ 0 => Rd.3 Col.2 ≠ 0 (FILIAL)
+            if (Rd20_Col1_F !== 0 && Rd3_Col2_F === 0) {
                 webform.errors.push({
-                    fieldName: 'CAP21_R21_' + col1 + '_FILIAL',
+                    fieldName: 'CAP11_R3_' + col2 + '_FILIAL',
                     index: j,
                     weight: 19,
                     msg: Drupal.t(
-                        'Raion: @cuatm – Cod eroare: 27-054.1-F. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R21-C1(@r21)',
-                        {
-                            '@cuatm': CAP_CUATM_FILIAL,
-                            '@r20': Rd20_Col1_F,
-                            '@r21': Rd21_Col1_F
-                        }
+                        'Raion: @cuatm – Cod eroare: 27-054.1-F. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1, Rând.3 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R3-C2(@r3)',
+                        { '@cuatm': CAP_CUATM_FILIAL, '@r20': Rd20_Col1_F, '@r3': Rd3_Col2_F }
                     )
                 });
             }
         }
     }
 }
+//----------------------------------------------
+
 //----------------------------------------------
 
 //  ----------------------------------------------
@@ -1217,7 +1215,7 @@ function validate27_056(values) {
 
     // If Rd.21 COL.1 ≠ 0, then Rd.54 COL.1 ≠ 0
     if (Rd21_Col1 !== 0 && Rd54_Col1 === 0) {
-        webform.errors.push({
+        webform.warnings.push({
             'fieldName': 'CAP21_R54_' + col1,
             'weight': 19,
             'msg': Drupal.t('Cod eroare: 27-056. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.1, Rând.54 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R54-C1(@Rd54_Col1)', {
@@ -1228,16 +1226,16 @@ function validate27_056(values) {
     }
 
     // If Rd.54 COL.1 ≠ 0, then Rd.21 COL.1 ≠ 0
-    if (Rd54_Col1 !== 0 && Rd21_Col1 === 0) {
-        webform.errors.push({
-            'fieldName': 'CAP111_R21_' + col1,
-            'weight': 19,
-            'msg': Drupal.t('Cod eroare: 27-056. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1), R21-C1(@Rd21_Col1)', {
-                '@Rd54_Col1': Rd54_Col1,
-                '@Rd21_Col1': Rd21_Col1
-            })
-        });
-    }
+    // if (Rd54_Col1 !== 0 && Rd21_Col1 === 0) {
+    //     webform.errors.push({
+    //         'fieldName': 'CAP111_R21_' + col1,
+    //         'weight': 19,
+    //         'msg': Drupal.t('Cod eroare: 27-056. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1), R21-C1(@Rd21_Col1)', {
+    //             '@Rd54_Col1': Rd54_Col1,
+    //             '@Rd21_Col1': Rd21_Col1
+    //         })
+    //     });
+    // }
 
     // FILIAL Validation
     if (values.CAP_NUM_FILIAL) {
@@ -1253,7 +1251,7 @@ function validate27_056(values) {
 
             // If Rd.21 COL.1 ≠ 0 in FILIAL, then Rd.54 COL.1 ≠ 0
             if (Rd21_Col1_F !== 0 && Rd54_Col1_F === 0) {
-                webform.errors.push({
+                webform.warnings.push({
                     'fieldName': 'CAP21_R54_' + col1 + '_FILIAL',
                     'index': j,
                     'weight': 19,
@@ -1266,18 +1264,18 @@ function validate27_056(values) {
             }
 
             // If Rd.54 COL.1 ≠ 0 in FILIAL, then Rd.21 COL.1 ≠ 0
-            if (Rd54_Col1_F !== 0 && Rd21_Col1_F === 0) {
-                webform.errors.push({
-                    'fieldName': 'CAP111_R21_' + col1 + '_FILIAL',
-                    'index': j,
-                    'weight': 19,
-                    'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-056-F. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1_F), R21-C1(@Rd21_Col1_F)', {
-                        '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
-                        '@Rd54_Col1_F': Rd54_Col1_F,
-                        '@Rd21_Col1_F': Rd21_Col1_F
-                    })
-                });
-            }
+            // if (Rd54_Col1_F !== 0 && Rd21_Col1_F === 0) {
+            //     webform.errors.push({
+            //         'fieldName': 'CAP111_R21_' + col1 + '_FILIAL',
+            //         'index': j,
+            //         'weight': 19,
+            //         'msg': Drupal.t('Raion: @CAP_CUATM_FILIAL - Cod eroare: 27-056-F. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1_F), R21-C1(@Rd21_Col1_F)', {
+            //             '@CAP_CUATM_FILIAL': CAP_CUATM_FILIAL,
+            //             '@Rd54_Col1_F': Rd54_Col1_F,
+            //             '@Rd21_Col1_F': Rd21_Col1_F
+            //         })
+            //     });
+            // }
         }
     }
 }
