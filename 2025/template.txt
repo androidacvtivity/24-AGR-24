@@ -1,3 +1,5 @@
-Creaza validarea 
-
-27-075.2  Cap. 2.2,  rd.4 COL(1-12) ≠0 Cap. 2.2 rd.5 COL(1-12) ≠0 si invers --  errors 
+B121825 - Modificare agro24_24 Agro_25_18.js
+Am daugat ultimul brach 
+1. B121525
+2. B121625
+3. B121825 - Modificare 24 agro Anual  
