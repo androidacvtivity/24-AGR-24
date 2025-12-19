@@ -1327,8 +1327,11 @@ function validate27_054(values) {
 
 //----------------------------------------------
 //----------------------------------------------
+
+//----------------------------------------------
 // 27-054.1 (ERROR)
-// Tab. 1.1.1: Dacă Rd.20 COL.1 ≠ 0, atunci Tab. 1.1: Rd.3 COL.2 ≠ 0
+// Tab. 1.1.1: Rd.20 COL.1  <=>  Tab. 1.1: Rd.3 COL.2
+// (dacă unul ≠ 0 atunci și celălalt ≠ 0, și invers)
 
 function validate27_054_1(values) {
     var col1 = "C1";
@@ -1337,16 +1340,10 @@ function validate27_054_1(values) {
     // ======================
     // NIVEL TOTAL
     // ======================
-    var Rd20_Col1 = !isNaN(Number(values["CAP111_R20_" + col1]))
-        ? Number(values["CAP111_R20_" + col1])
-        : 0;
+    var Rd20_Col1 = !isNaN(Number(values["CAP111_R20_" + col1])) ? Number(values["CAP111_R20_" + col1]) : 0;
+    var Rd3_Col2 = !isNaN(Number(values["CAP11_R3_" + col2])) ? Number(values["CAP11_R3_" + col2]) : 0;
 
-    // Tab. 1.1, Rd.3, Col.2
-    var Rd3_Col2 = !isNaN(Number(values["CAP11_R3_" + col2]))
-        ? Number(values["CAP11_R3_" + col2])
-        : 0;
-
-    // Rd.20 ≠ 0 => Rd.3 Col.2 ≠ 0
+    // Rd.20 ≠ 0 => Rd.3 C2 ≠ 0
     if (Rd20_Col1 !== 0 && Rd3_Col2 === 0) {
         webform.errors.push({
             fieldName: 'CAP11_R3_' + col2,
@@ -1358,29 +1355,37 @@ function validate27_054_1(values) {
         });
     }
 
+    // Rd.3 C2 ≠ 0 => Rd.20 ≠ 0
+    if (Rd3_Col2 !== 0 && Rd20_Col1 === 0) {
+        webform.errors.push({
+            fieldName: 'CAP111_R20_' + col1,
+            weight: 19,
+            msg: Drupal.t(
+                'Cod eroare: 27-054.1. Dacă Tab. 1.1, Rând.3 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R3-C2(@r3), R20-C1(@r20)',
+                { '@r3': Rd3_Col2, '@r20': Rd20_Col1 }
+            )
+        });
+    }
+
     // ======================
     // FILIALE
     // ======================
     if (values.CAP_NUM_FILIAL) {
         for (var j = 0; j < values.CAP_NUM_FILIAL.length; j++) {
 
-            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j]))
-                ? ""
-                : String(values.CAP_CUATM_FILIAL[j]);
+            var CAP_CUATM_FILIAL = isNaN(String(values.CAP_CUATM_FILIAL[j])) ? "" : String(values.CAP_CUATM_FILIAL[j]);
 
             var Rd20_Col1_F =
-                values["CAP111_R20_" + col1 + "_FILIAL"] &&
-                    !isNaN(Number(values["CAP111_R20_" + col1 + "_FILIAL"][j]))
+                values["CAP111_R20_" + col1 + "_FILIAL"] && !isNaN(Number(values["CAP111_R20_" + col1 + "_FILIAL"][j]))
                     ? Number(values["CAP111_R20_" + col1 + "_FILIAL"][j])
                     : 0;
 
             var Rd3_Col2_F =
-                values["CAP11_R3_" + col2 + "_FILIAL"] &&
-                    !isNaN(Number(values["CAP11_R3_" + col2 + "_FILIAL"][j]))
+                values["CAP11_R3_" + col2 + "_FILIAL"] && !isNaN(Number(values["CAP11_R3_" + col2 + "_FILIAL"][j]))
                     ? Number(values["CAP11_R3_" + col2 + "_FILIAL"][j])
                     : 0;
 
-            // Rd.20 ≠ 0 => Rd.3 Col.2 ≠ 0 (FILIAL)
+            // Rd.20 ≠ 0 => Rd.3 C2 ≠ 0 (FILIAL)
             if (Rd20_Col1_F !== 0 && Rd3_Col2_F === 0) {
                 webform.errors.push({
                     fieldName: 'CAP11_R3_' + col2 + '_FILIAL',
@@ -1392,9 +1397,25 @@ function validate27_054_1(values) {
                     )
                 });
             }
+
+            // Rd.3 C2 ≠ 0 => Rd.20 ≠ 0 (FILIAL)
+            if (Rd3_Col2_F !== 0 && Rd20_Col1_F === 0) {
+                webform.errors.push({
+                    fieldName: 'CAP111_R20_' + col1 + '_FILIAL',
+                    index: j,
+                    weight: 19,
+                    msg: Drupal.t(
+                        'Raion: @cuatm – Cod eroare: 27-054.1-F. Dacă Tab. 1.1, Rând.3 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R3-C2(@r3), R20-C1(@r20)',
+                        { '@cuatm': CAP_CUATM_FILIAL, '@r3': Rd3_Col2_F, '@r20': Rd20_Col1_F }
+                    )
+                });
+            }
         }
     }
 }
+//----------------------------------------------
+
+
 //----------------------------------------------
 
 //----------------------------------------------
