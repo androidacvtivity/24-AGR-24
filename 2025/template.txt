@@ -6,3 +6,7 @@ Am daugat ultimul brach
 
 
 SELECT LEFT(CASE WHEN TRIM(c.code) REGEXP '^[135]' AND CHAR_LENGTH(TRIM(c.code)) = 6 THEN CONCAT('0', TRIM(c.code)) ELSE TRIM(c.code) END, 7) AS code, CONCAT(LEFT(CASE WHEN TRIM(c.code) REGEXP '^[135]' AND CHAR_LENGTH(TRIM(c.code)) = 6 THEN CONCAT('0', TRIM(c.code)) ELSE TRIM(c.code) END, 7), ' - ', t.name) FROM taxonomy_term_data t JOIN classifier_cuatm_full c ON c.tid = t.tid WHERE c.prgs IN ('5','3','4','6','8','9') AND c.code NOT IN ('101000');
+
+
+
+B122325 - Modificare 24 agro Anual   -- Agro_25_23.js

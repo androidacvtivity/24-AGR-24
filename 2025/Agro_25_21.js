@@ -3058,40 +3058,41 @@ function validate27_037(values) {
 
 //--------------------------------------------------
 // 27-029.1
-// Tab. 1.1.1: Rd.3 COL.1 (CAP11_R3_C1)
+// Tab. 1.1.1: Rd.3 COL.2 (CAP11_R3_C2)
 // Tab. 1.1  : Rd.7 COL.1 (CAP111_R7_C1)
 
 function validate27_029_1(values) {
-    var col1 = "C1";
+    var col2 = "C2";  // Rd.3 col.2
+    var col1 = "C1";  // Rd.7 col.1
 
     // ====== TOTAL ======
-    var Rd3_CAP11 = !isNaN(Number(values["CAP11_R3_" + col1]))
-        ? Number(values["CAP11_R3_" + col1])
+    var Rd3_CAP11 = !isNaN(Number(values["CAP11_R3_" + col2]))
+        ? Number(values["CAP11_R3_" + col2])
         : 0;
 
     var Rd7_CAP111 = !isNaN(Number(values["CAP111_R7_" + col1]))
         ? Number(values["CAP111_R7_" + col1])
         : 0;
 
-    // Rd.3 ≠ 0 => Rd.7 ≠ 0
+    // Rd.3 (COL.2) ≠ 0 => Rd.7 (COL.1) ≠ 0
     if (Rd3_CAP11 !== 0 && Rd7_CAP111 === 0) {
         webform.errors.push({
             fieldName: "CAP111_R7_" + col1,
             weight: 19,
             msg: Drupal.t(
-                "Cod eroare: 27-029.1. Dacă Tab. 1.1.1, Rând.3 COL.1 ≠ 0, atunci Tab. 1.1, Rând.7 COL.1 trebuie să fie ≠ 0. (R3=@r3, R7=@r7)",
+                "Cod eroare: 27-029.1. Dacă Tab. 1.1.1, Rând.3 COL.2 ≠ 0, atunci Tab. 1.1, Rând.7 COL.1 trebuie să fie ≠ 0. (R3C2=@r3, R7C1=@r7)",
                 { "@r3": Rd3_CAP11, "@r7": Rd7_CAP111 }
             )
         });
     }
 
-    // Rd.7 ≠ 0 => Rd.3 ≠ 0
+    // Rd.7 (COL.1) ≠ 0 => Rd.3 (COL.2) ≠ 0
     if (Rd7_CAP111 !== 0 && Rd3_CAP11 === 0) {
         webform.errors.push({
-            fieldName: "CAP11_R3_" + col1,
+            fieldName: "CAP11_R3_" + col2,
             weight: 19,
             msg: Drupal.t(
-                "Cod eroare: 27-029.1. Dacă Tab. 1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.3 COL.1 trebuie să fie ≠ 0. (R7=@r7, R3=@r3)",
+                "Cod eroare: 27-029.1. Dacă Tab. 1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.3 COL.2 trebuie să fie ≠ 0. (R7C1=@r7, R3C2=@r3)",
                 { "@r7": Rd7_CAP111, "@r3": Rd3_CAP11 }
             )
         });
@@ -3104,9 +3105,9 @@ function validate27_029_1(values) {
             var cuatm = values.CAP_CUATM_FILIAL[j] || "";
 
             var Rd3_CAP11_F =
-                values["CAP11_R3_" + col1 + "_FILIAL"] &&
-                    !isNaN(Number(values["CAP11_R3_" + col1 + "_FILIAL"][j]))
-                    ? Number(values["CAP11_R3_" + col1 + "_FILIAL"][j])
+                values["CAP11_R3_" + col2 + "_FILIAL"] &&
+                    !isNaN(Number(values["CAP11_R3_" + col2 + "_FILIAL"][j]))
+                    ? Number(values["CAP11_R3_" + col2 + "_FILIAL"][j])
                     : 0;
 
             var Rd7_CAP111_F =
@@ -3115,27 +3116,27 @@ function validate27_029_1(values) {
                     ? Number(values["CAP111_R7_" + col1 + "_FILIAL"][j])
                     : 0;
 
-            // Rd.3 ≠ 0 => Rd.7 ≠ 0
+            // Rd.3 (COL.2) ≠ 0 => Rd.7 (COL.1) ≠ 0
             if (Rd3_CAP11_F !== 0 && Rd7_CAP111_F === 0) {
                 webform.errors.push({
                     fieldName: "CAP111_R7_" + col1 + "_FILIAL",
                     index: j,
                     weight: 19,
                     msg: Drupal.t(
-                        "Raion: @c - Cod eroare: 27-029.1-F. Dacă Tab. 1.1.1, Rând.3 COL.1 ≠ 0, atunci Tab. 1.1, Rând.7 COL.1 trebuie să fie ≠ 0. (R3=@r3, R7=@r7)",
+                        "Raion: @c - Cod eroare: 27-029.1-F. Dacă Tab. 1.1.1, Rând.3 COL.2 ≠ 0, atunci Tab. 1.1, Rând.7 COL.1 trebuie să fie ≠ 0. (R3C2=@r3, R7C1=@r7)",
                         { "@c": cuatm, "@r3": Rd3_CAP11_F, "@r7": Rd7_CAP111_F }
                     )
                 });
             }
 
-            // Rd.7 ≠ 0 => Rd.3 ≠ 0
+            // Rd.7 (COL.1) ≠ 0 => Rd.3 (COL.2) ≠ 0
             if (Rd7_CAP111_F !== 0 && Rd3_CAP11_F === 0) {
                 webform.errors.push({
-                    fieldName: "CAP11_R3_" + col1 + "_FILIAL",
+                    fieldName: "CAP11_R3_" + col2 + "_FILIAL",
                     index: j,
                     weight: 19,
                     msg: Drupal.t(
-                        "Raion: @c - Cod eroare: 27-029.1-F. Dacă Tab. 1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.3 COL.1 trebuie să fie ≠ 0. (R7=@r7, R3=@r3)",
+                        "Raion: @c - Cod eroare: 27-029.1-F. Dacă Tab. 1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.3 COL.2 trebuie să fie ≠ 0. (R7C1=@r7, R3C2=@r3)",
                         { "@c": cuatm, "@r7": Rd7_CAP111_F, "@r3": Rd3_CAP11_F }
                     )
                 });
