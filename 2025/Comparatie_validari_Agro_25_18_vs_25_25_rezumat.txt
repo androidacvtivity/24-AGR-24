@@ -1,0 +1,528 @@
+
+Buna ziua Marina. Acum la fisc este Agro_25_18.js - Versiunea modificarii dar noi am mai facut dupa aceea 2 modificari - care mai jois sunt descrise
+Noi deschidem din 30.01 Raportul - dar cum este deploy - plasam ultima modificare. 
+
+COMPARAȚIE VALIDĂRI: Agro_25_18.js vs Agro_25_25.js
+
+
+REZUMAT
+------
+- Număr coduri de validare identificate: 68 (în ambele fișiere)
+- Diferențe găsite în reguli: 2 coduri (27-029.1, 27-054.1)
+- Severitatea (ERROR/WARNING) este identică pentru toate codurile; diferențele sunt în formula/condiție.
+
+DIFERENȚE DETALIATE
+-------------------
+
+[27-029.1]
+- În Agro_25_18.js:
+  1) Cod eroare: 27-029.1. Dacă Tab. 1.1.1, Rând.3 COL.1 ≠ 0, atunci Tab. 1.1, Rând.7 COL.1 trebuie să fie ≠ 0. (R3=@r3, R7=@r7)
+  2) Cod eroare: 27-029.1. Dacă Tab. 1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.3 COL.1 trebuie să fie ≠ 0. (R7=@r7, R3=@r3)
+- În Agro_25_25.js:
+  1) Cod eroare: 27-029.1. Dacă Tab. 1.1.1, Rând.3 COL.2 ≠ 0, atunci Tab. 1.1, Rând.7 COL.1 trebuie să fie ≠ 0. (R3C2=@r3, R7C1=@r7)
+  2) Cod eroare: 27-029.1. Dacă Tab. 1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.3 COL.2 trebuie să fie ≠ 0. (R7C1=@r7, R3C2=@r3)
+  Observație: coloana pentru Tab.1.1.1 rând.3 s-a schimbat din COL.1 în COL.2 (și în mesajele total/filial).
+
+[27-054.1]
+- În Agro_25_18.js:
+  1) Cod eroare: 27-054.1. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1, Rând.3 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R3-C2(@r3)
+- În Agro_25_25.js:
+  1) Cod eroare: 27-054.1. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1, Rând.3 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R3-C2(@r3)
+  2) Cod eroare: 27-054.1. Dacă Tab. 1.1, Rând.3 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R3-C2(@r3), R20-C1(@r20)
+  Observație: în versiunea 25_25 s-a adăugat și verificarea inversă: dacă Tab.1.1 rând.3 COL.2 ≠ 0 atunci Tab.1.1.1 rând.20 COL.1 trebuie să fie ≠ 0 (inclusiv pentru filiale).
+
+
+LISTA REGULI – Agro_25_18.js
+
+----------------------------
+
+27-001 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-001. Valoarea CAP.2.1 Rând.15 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.3. Valoarea găsită: , --  
+
+27-002 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-002-F. Valoarea CAP.2.1 Rând.23 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.1. Valoarea găsită:  --  
+
+27-003 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-003. Valoarea CAP.2.1 Rând.35 col.1 trebuie să fie ≤ CAP.2.1 Rând.34 col.1. Valoarea găsită: ---- 
+
+27-004 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-004. Valoarea CAP21 Rând.36 col.1 trebuie să fie egală cu CAP22 Rând.11 col.4. Valoarea găsită: , valoarea așteptată: 
+
+27-005 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-005. Valoarea CAP.2.1 Rând.37 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.7. Valoarea găsită: --- 
+
+27-006 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-006. Valoarea CAP.2.1 Rând.49 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.6. Valoarea găsită:  --  
+
+27-007 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-007. Valoarea CAP.2.1 Rând.51 col.1 trebuie să fie ≤ CAP.2.1 Rând.50 col.1. Valoarea găsită: ---- 
+
+27-008 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-008. Valoarea CAP.2.1 Rând.50 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.9. Valoarea găsită: ------
+
+27-009 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-009. Valoarea CAP.2.1 Rând.52 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.11. Valoarea găsită: ----- 
+
+27-010 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-010. Valoarea CAP.2.1 Rând.54 col.1 trebuie să fie ≤ CAP.2.1 Rând.53 col.1. Valoarea găsită: ----
+
+27-011 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-011. Dacă CAP.2.1 Rând.54 col.1 ≠ 0, atunci CAP.1.1 Rând.21 col.1 trebuie să fie ≠ 0. Valoare CAP.2.1 R54 col.1: , valoare CAP.1.1  R21 col.1: 
+
+27-012 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-012. Dacă CAP21 Rând.21 col.1 ≠ 0, atunci CAP111 Rând.20 col.1 trebuie să fie ≠ 0. Valoare CAP21 R21 col.1: , valoare CAP111 R20 col.1: 
+
+27-015 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-015. Dacă Tab. 2.2, Rând.11 COL.1 ≠ 0, atunci Tab. 2.1, Rând.23 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1_Tab22), R23-C1(@Rd23_Col1_Tab21)
+  Formula 2: Cod eroare: 27-015. Dacă Tab. 2.1, Rând.23 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R23-C1(@Rd23_Col1_Tab21), R11-C1(@Rd11_Col1_Tab22)
+
+27-016 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-016. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2_Tab22), R21-C1(@Rd21_Col1_Tab21)
+  Formula 2: Cod eroare: 27-016. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_Tab21), R11-C2(@Rd11_Col2_Tab22)
+
+27-017 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-017. Dacă Tab. 2.2, Rând.11 COL.3 ≠ 0, atunci Tab. 2.1, Rând.15 COL.1 trebuie să fie ≠ 0. Valori: R11-C3(@Rd11_Col3_Tab22), R15-C1(@Rd15_Col1_Tab21)
+  Formula 2: Cod eroare: 27-017. Dacă Tab. 2.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.3 trebuie să fie ≠ 0. Valori: R15-C1(@Rd15_Col1_Tab21), R11-C3(@Rd11_Col3_Tab22)
+
+27-018 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-018. Dacă Tab. 2.2, Rând.11 COL.4 ≠ 0, atunci Tab. 2.1, Rând.36 COL.1 trebuie să fie ≠ 0. Valori: R11-C4(@Rd11_Col4_Tab22), R36-C1(@Rd36_Col1_Tab21)
+  Formula 2: Cod eroare: 27-018. Dacă Tab. 2.1, Rând.36 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.4 trebuie să fie ≠ 0. Valori: R36-C1(@Rd36_Col1_Tab21), R11-C4(@Rd11_Col4_Tab22)
+
+27-019 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-019. Dacă Tab. 2.2, Rând.11 COL.5 ≠ 0, atunci Tab. 2.1, Rând.30 COL.1 trebuie să fie ≠ 0. Valori: R11-C5(@Rd11_Col5_Tab22), R30-C1(@Rd30_Col1_Tab21)
+  Formula 2: Cod eroare: 27-019. Dacă Tab. 2.1, Rând.30 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.5 trebuie să fie ≠ 0. Valori: R30-C1(@Rd30_Col1_Tab21), R11-C5(@Rd11_Col5_Tab22)
+
+27-020 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-020. Dacă Tab. 2.2, Rând.11 COL.6 ≠ 0, atunci Tab. 2.1, Rând.49 COL.1 trebuie să fie ≠ 0. Valori: R11-C6(@Rd11_Col6_Tab22), R49-C1(@Rd49_Col1_Tab21)
+  Formula 2: Cod eroare: 27-020. Dacă Tab. 2.1, Rând.49 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.6 trebuie să fie ≠ 0. Valori: R49-C1(@Rd49_Col1_Tab21), R11-C6(@Rd11_Col6_Tab22)
+
+27-021 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-021. Dacă Tab. 2.2, Rând.11 COL.7 ≠ 0, atunci Tab. 2.1, Rând.37 COL.1 trebuie să fie ≠ 0. Valori: R11-C7(@Rd11_Col7_Tab22), R37-C1(@Rd37_Col1_Tab21)
+  Formula 2: Cod eroare: 27-021. Dacă Tab. 2.1, Rând.37 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R37-C1(@Rd37_Col1_Tab21), R11-C7(@Rd11_Col7_Tab22)
+
+27-022 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-022. Dacă Tab. 2.2, Rând.11 COL.8 ≠ 0, atunci Tab. 2.1, Rând.38 COL.1 sau Rând.45 COL.1 trebuie să fie ≠ 0. Valori: R11-C8(@Rd11_Col8_Tab22), R38-C1(@Rd38_Col1_Tab21), R45-C1(@Rd45_Col1_Tab21)
+  Formula 2: Cod eroare: 27-022. Dacă Tab. 2.1, Rând.38 COL.1 sau Rând.45 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R38-C1(@Rd38_Col1_Tab21), R45-C1(@Rd45_Col1_Tab21), R11-C8(@Rd11_Col8_Tab22)
+
+27-024 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-024. Dacă Tab. 2.2, Rând.11 COL.9 ≠ 0, atunci Tab. 2.1, Rând.50 COL.1 trebuie să fie ≠ 0. Valori: R11-C9(@Rd11_Col9_Tab22), R50-C1(@Rd50_Col1_Tab21)
+  Formula 2: Cod eroare: 27-024. Dacă Tab. 2.1, Rând.50 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.9 trebuie să fie ≠ 0. Valori: R50-C1(@Rd50_Col1_Tab21), R11-C9(@Rd11_Col9_Tab22)
+
+27-025 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-025. Dacă Tab. 2.2, Rând.11 COL.11 ≠ 0, atunci Tab. 2.1, Rând.52 COL.1 trebuie să fie ≠ 0. Valori: R11-C11(@Rd11_Col11_Tab22), R52-C1(@Rd52_Col1_Tab21)
+  Formula 2: Cod eroare: 27-025. Dacă Tab. 2.1, Rând.52 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R52-C1(@Rd52_Col1_Tab21), R11-C11(@Rd11_Col11_Tab22)
+
+27-026 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-026. Dacă Tab. 2.2, Rând.11 COL.12 ≠ 0, atunci Tab. 2.1, Rând.55 COL.1 trebuie să fie ≠ 0. Valori: R11-C12(@Rd11_Col12_Tab22), R55-C1(@Rd55_Col1_Tab21)
+  Formula 2: Cod eroare: 27-026. Dacă Tab. 2.1, Rând.55 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.12 trebuie să fie ≠ 0. Valori: R55-C1(@Rd55_Col1_Tab21), R11-C12(@Rd11_Col12_Tab22)
+
+27-027 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-027. Dacă Tab. 1.1, Rând.4 COL (@colTab11) = @valueTab11 ≠ 0, atunci Tab. 2.2, Rând.10 COL (@colTab22) = @valueTab22 trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-027. Dacă Tab. 2.2, Rând.10 COL (@colTab22) = @valueTab22 ≠ 0, atunci Tab. 1.1, Rând.4 COL (@colTab11) = @valueTab11 trebuie să fie ≠ 0.
+
+27-027.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-027.1. Dacă Tab. 1.1, Rând.4 COL.8 ≠ 0, atunci Tab. 2.2, Rând.10 COL.12 sau COL.9 trebuie să fie ≠ 0. Valori: R4-C8(@Rd4_Col8_Tab11), R10-C12(@Rd10_Col12_Tab22), R10-C9(@Rd10_Col9_Tab22)
+  Formula 2: Cod eroare: 27-027.1. Dacă Tab. 2.2, Rând.10 COL.12 sau COL.9 ≠ 0, atunci Tab. 1.1, Rând.4 COL.8 trebuie să fie ≠ 0. Valori: R10-C12(@Rd10_Col12_Tab22), R10-C9(@Rd10_Col9_Tab22), R4-C8(@Rd4_Col8_Tab11)
+
+27-028 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-028. [@col] - Tab.1.1, rd.5 pe COL (@col), Rînd.(5) COL(1,3,4,5,6,8) = Rînd.(1+2-4)) COL(1,3,4,5,6,8), @CAP1_R5_C <> @result_33_001
+
+27-029 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-029. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R20-C1(@Rd20_Col1)
+  Formula 2: Cod eroare: 27-029. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R7-C1(@Rd7_Col1)
+
+27-029.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-029.1. Dacă Tab. 1.1.1, Rând.3 COL.1 ≠ 0, atunci Tab. 1.1, Rând.7 COL.1 trebuie să fie ≠ 0. (R3=@r3, R7=@r7)
+  Formula 2: Cod eroare: 27-029.1. Dacă Tab. 1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.3 COL.1 trebuie să fie ≠ 0. (R7=@r7, R3=@r3)
+
+27-030 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-030. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R21-C1(@Rd21_Col1)
+  Formula 2: Cod eroare: 27-030. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R7-C1(@Rd7_Col1)
+
+27-031 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-031. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R11-C2(@Rd11_Col2)
+  Formula 2: Cod eroare: 27-031. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2), R7-C1(@Rd7_Col1)
+
+27-032 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-032. Dacă Tab. 1.1.1, Rând.8 COL.1 ≠ 0, atunci Tab. 2.1, Rând.39 COL.1 trebuie să fie ≠ 0. Valori: R8-C1(@Rd8_Col1), R39-C1(@Rd39_Col1)
+  Formula 2: Cod eroare: 27-032. Dacă Tab. 2.1, Rând.39 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.8 COL.1 trebuie să fie ≠ 0. Valori: R39-C1(@Rd39_Col1), R8-C1(@Rd8_Col1)
+
+27-034 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-034. Dacă Tab. 1.1.1, Rând.9 COL.1 ≠ 0, atunci Tab. 2.1, Rând.46 COL.1 trebuie să fie ≠ 0. Valori: R9-C1(@Rd9_Col1), R46-C1(@Rd46_Col1)
+  Formula 2: Cod eroare: 27-034. Dacă Tab. 2.1, Rând.46 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.9 COL.1 trebuie să fie ≠ 0. Valori: R46-C1(@Rd46_Col1), R9-C1(@Rd9_Col1)
+
+27-036 | ERROR
+  Formula: Cod eroare: 27-036. Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≥ Tab. 1.1.1, Rând.11 COL.1. Valori: R10-C1(@CAP111_R10_C1), R11-C1(@CAP111_R11_C1)
+
+27-037 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1), R21-C1(@Rd21_Col1)
+  Formula 2: Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R11-C1(@Rd11_Col1)
+
+27-039 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-039. Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 2.2 Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R10-C1(@CAP111_R10_C1), R11-C11(@CAP22_R11_C11)
+
+27-040 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-040. Dacă Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 2.1, Rând.54 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1), R54-C1(@Rd54_Col1)
+  Formula 2: Cod eroare: 27-040. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1), R11-C1(@Rd11_Col1)
+
+27-041 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-041. Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 2.2 Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R11-C1(@CAP111_R11_C1), R11-C11(@CAP22_R11_C11)
+
+27-042 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-042. Tab. 1.1.1, Rând.12 COL.1 ≠ 0, atunci Tab. 2.1, Rând.53 COL.1 trebuie să fie ≠ 0. Valori: R12-C1(@CAP111_R12_C1), R53-C1(@CAP21_R53_C1)
+
+27-043 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-043. Tab. 1.1.1, Rând.12 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R12-C1(@CAP111_R12_C1), R11-C11(@CAP22_R11_C11)
+
+27-044 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-044. Dacă Tab. 1.1.1, Rând.13 COL.1 ≠ 0, atunci Tab. 2.1, Rând.43 COL.1 trebuie să fie ≠ 0. Valori: R13-C1(@Rd13_Col1), R43-C1(@Rd43_Col1)
+  Formula 2: Cod eroare: 27-044. Dacă Tab. 2.1, Rând.43 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.13 COL.1 trebuie să fie ≠ 0. Valori: R43-C1(@Rd43_Col1), R13-C1(@Rd13_Col1)
+
+27-045 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-045. Tab. 1.1.1, Rând.13 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R13-C1(@CAP111_R13_C1), R11-C7(@CAP22_R11_C7)
+
+27-046 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-046. Tab. 1.1.1, Rând.14 COL.1 ≠ 0, atunci Tab. 2.1, Rând.42 COL.1 trebuie să fie ≠ 0. Valori: R14-C1(@CAP111_R14_C1), R42-C1(@CAP21_R42_C1)
+
+27-047 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-047. Tab. 1.1.1, Rând.14 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R14-C1(@CAP111_R14_C1), R11-C7(@CAP22_R11_C7)
+
+27-048 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-048. Tab. 1.1.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.1, Rând.55 COL.1 trebuie să fie ≠ 0. Valori: R15-C1(@CAP111_R15_C1), R55-C1(@CAP21_R55_C1)
+
+27-049 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-049. Tab. 1.1.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.12 trebuie să fie ≠ 0. Valori: R15-C1(@CAP111_R15_C1), R11-C12(@CAP22_R11_C12)
+
+27-050 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-050. Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 2.1, Rând.56 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@CAP111_R17_C1), R56-C1(@CAP21_R56_C1)
+
+27-051 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-051. Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≥ Tab. 1.1.1, Rând.18 COL.1. Valori: R17-C1(@CAP111_R17_C1), R18-C1(@CAP111_R18_C1)
+
+27-052 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-052. Dacă Tab. 1.1.1, Rând.18 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≠ 0. Valori: R18-C1(@Rd18_Col1), R17-C1(@Rd17_Col1)
+  Formula 2: Cod eroare: 27-052. Dacă Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.18 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@Rd17_Col1), R18-C1(@Rd18_Col1)
+
+27-053 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-053. Dacă Tab. 1.1.1, Rând.19 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≠ 0. Valori: R19-C1(@Rd19_Col1), R17-C1(@Rd17_Col1)
+  Formula 2: Cod eroare: 27-053. Dacă Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.19 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@Rd17_Col1), R19-C1(@Rd19_Col1)
+
+27-054 | ERROR/WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-054. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R21-C1(@Rd21_Col1)
+  Formula 2: Cod eroare: 27-054. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R20-C1(@Rd20_Col1)
+
+27-054.1 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-054.1. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1, Rând.3 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R3-C2(@r3)
+
+27-054.2 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-054.2. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R21-C1(@r21)
+  Formula 2: Cod eroare: 27-054.2. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@r21), R20-C1(@r20)
+
+27-055 | ERROR/WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-055. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R11-C2(@Rd11_Col2)
+  Formula 2: Cod eroare: 27-055. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2), R20-C1(@Rd20_Col1)
+
+27-055.1 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-055.1. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@r11), R20-C1(@r20)
+
+27-056 | ERROR/WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-056. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.1, Rând.54 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R54-C1(@Rd54_Col1)
+  Formula 2: Cod eroare: 27-056. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1), R21-C1(@Rd21_Col1)
+
+27-056.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-056.1. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1, Rând.3 COL.7 trebuie să fie ≠ 0. Valori: R21-C1(@r21), R3-C7(@r3)
+  Formula 2: Cod eroare: 27-056.1. Dacă Tab. 1.1, Rând.3 COL.7 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R3-C7(@r3), R21-C1(@r21)
+
+27-057 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-057. Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R21-C1(@CAP111_R21_C1), R11-C11(@CAP22_R11_C11)
+
+27-058 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-058. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-058. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.
+
+27-058.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-058.1. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-058.1. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.
+
+27-059 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-059. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 ≠ 0, atunci Tab. 1.1, Rând.3 COL (@colTab11) = @valueTab11_R3 trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-059. Dacă Tab. 1.1, Rând.3 COL (@colTab11) = @valueTab11_R3 ≠ 0, atunci Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 trebuie să fie ≠ 0.
+  Formula 3: Cod eroare: 27-059. Dacă Tab.1.1 rd.2  ≠ 0, atunci Tab.1.1 rd.3  trebuie să fie ≠ 0 și invers. Valoare rd.2: , valoare rd.3: 
+
+27-060 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-060. Dacă Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1 ≠ 0, atunci Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-060. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1 trebuie să fie ≠ 0.
+
+27-073 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-073. Dacă Tab. 2.2, Rând.1 COL.@col ≠ 0, atunci Tab. 2.2, Rând.2 COL.@col trebuie să fie ≠ 0. Valori: R1-C@col(@Rd1_Col), R2-C@col(@Rd2_Col)
+  Formula 2: Cod eroare: 27-073. Dacă Tab. 2.2, Rând.2 COL.@col ≠ 0, atunci Tab. 2.2, Rând.1 COL.@col trebuie să fie ≠ 0. Valori: R2-C@col(@Rd2_Col), R1-C@col(@Rd1_Col)
+
+27-074 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-074. Dacă Tab. 2.2, Rând.6 COL.@col ≠ 0, atunci Tab. 2.2, Rând.7 COL.@col trebuie să fie ≠ 0. Valori: R6-C@col(@Rd6_Col), R7-C@col(@Rd7_Col)
+  Formula 2: Cod eroare: 27-074. Dacă Tab. 2.2, Rând.7 COL.@col ≠ 0, atunci Tab. 2.2, Rând.6 COL.@col trebuie să fie ≠ 0. Valori: R7-C@col(@Rd7_Col), R6-C@col(@Rd6_Col)
+
+27-075 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-075. Dacă Tab. 2.2, Rând.8 COL.@col ≠ 0, atunci Tab. 2.2, Rând.9 COL.@col trebuie să fie ≠ 0. Valori: R8-C@col(@Rd8_Col), R9-C@col(@Rd9_Col)
+  Formula 2: Cod eroare: 27-075. Dacă Tab. 2.2, Rând.9 COL.@col ≠ 0, atunci Tab. 2.2, Rând.8 COL.@col trebuie să fie ≠ 0. Valori: R9-C@col(@Rd9_Col), R8-C@col(@Rd8_Col)
+
+27-075.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-075.1. Cap.2.2: Dacă Rd.1 COL.@c ≠ 0, atunci Rd.2 COL.@c trebuie să fie ≠ 0. Valori: R1=@r1, R2=@r2
+  Formula 2: Cod eroare: 27-075.1. Cap.2.2: Dacă Rd.2 COL.@c ≠ 0, atunci Rd.1 COL.@c trebuie să fie ≠ 0. Valori: R2=@r2, R1=@r1
+
+27-075.2 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-075.2. Cap.2.2: Dacă Rd.4 COL.@c ≠ 0, atunci Rd.5 COL.@c trebuie să fie ≠ 0. Valori: R4=@r4, R5=@r5
+  Formula 2: Cod eroare: 27-075.2. Cap.2.2: Dacă Rd.5 COL.@c ≠ 0, atunci Rd.4 COL.@c trebuie să fie ≠ 0. Valori: R5=@r5, R4=@r4
+
+33-004 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 33-004. [@col] - Tab.1.1.1, rd.7 pe COL (@col), COL(1) ≠ 0 atunci Tab 1.1.1, Rînd.(20) COL(1) ≠ 0 și invers , @CAP11_R7_C - @CAP11_R20_C ≠ 0
+
+45-020 | ERROR
+  Formula: Raion: @CAP_NUM_FILIAL - Cod eroare: 45-020.  - Dacă există Nr. [@CAP_NUM_FILIAL], atunci trebuie să existe și cod CUATM.
+
+LISTA REGULI – Agro_25_25.js
+
+----------------------------
+
+27-001 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-001. Valoarea CAP.2.1 Rând.15 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.3. Valoarea găsită: , --  
+
+27-002 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-002-F. Valoarea CAP.2.1 Rând.23 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.1. Valoarea găsită:  --  
+
+27-003 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-003. Valoarea CAP.2.1 Rând.35 col.1 trebuie să fie ≤ CAP.2.1 Rând.34 col.1. Valoarea găsită: ---- 
+
+27-004 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-004. Valoarea CAP21 Rând.36 col.1 trebuie să fie egală cu CAP22 Rând.11 col.4. Valoarea găsită: , valoarea așteptată: 
+
+27-005 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-005. Valoarea CAP.2.1 Rând.37 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.7. Valoarea găsită: --- 
+
+27-006 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-006. Valoarea CAP.2.1 Rând.49 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.6. Valoarea găsită:  --  
+
+27-007 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-007. Valoarea CAP.2.1 Rând.51 col.1 trebuie să fie ≤ CAP.2.1 Rând.50 col.1. Valoarea găsită: ---- 
+
+27-008 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-008. Valoarea CAP.2.1 Rând.50 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.9. Valoarea găsită: ------
+
+27-009 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-009. Valoarea CAP.2.1 Rând.52 col.1 trebuie să fie egală cu CAP.2.2 Rând.11 col.11. Valoarea găsită: ----- 
+
+27-010 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-010. Valoarea CAP.2.1 Rând.54 col.1 trebuie să fie ≤ CAP.2.1 Rând.53 col.1. Valoarea găsită: ----
+
+27-011 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-011. Dacă CAP.2.1 Rând.54 col.1 ≠ 0, atunci CAP.1.1 Rând.21 col.1 trebuie să fie ≠ 0. Valoare CAP.2.1 R54 col.1: , valoare CAP.1.1  R21 col.1: 
+
+27-012 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-012. Dacă CAP21 Rând.21 col.1 ≠ 0, atunci CAP111 Rând.20 col.1 trebuie să fie ≠ 0. Valoare CAP21 R21 col.1: , valoare CAP111 R20 col.1: 
+
+27-015 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-015. Dacă Tab. 2.2, Rând.11 COL.1 ≠ 0, atunci Tab. 2.1, Rând.23 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1_Tab22), R23-C1(@Rd23_Col1_Tab21)
+  Formula 2: Cod eroare: 27-015. Dacă Tab. 2.1, Rând.23 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R23-C1(@Rd23_Col1_Tab21), R11-C1(@Rd11_Col1_Tab22)
+
+27-016 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-016. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2_Tab22), R21-C1(@Rd21_Col1_Tab21)
+  Formula 2: Cod eroare: 27-016. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1_Tab21), R11-C2(@Rd11_Col2_Tab22)
+
+27-017 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-017. Dacă Tab. 2.2, Rând.11 COL.3 ≠ 0, atunci Tab. 2.1, Rând.15 COL.1 trebuie să fie ≠ 0. Valori: R11-C3(@Rd11_Col3_Tab22), R15-C1(@Rd15_Col1_Tab21)
+  Formula 2: Cod eroare: 27-017. Dacă Tab. 2.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.3 trebuie să fie ≠ 0. Valori: R15-C1(@Rd15_Col1_Tab21), R11-C3(@Rd11_Col3_Tab22)
+
+27-018 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-018. Dacă Tab. 2.2, Rând.11 COL.4 ≠ 0, atunci Tab. 2.1, Rând.36 COL.1 trebuie să fie ≠ 0. Valori: R11-C4(@Rd11_Col4_Tab22), R36-C1(@Rd36_Col1_Tab21)
+  Formula 2: Cod eroare: 27-018. Dacă Tab. 2.1, Rând.36 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.4 trebuie să fie ≠ 0. Valori: R36-C1(@Rd36_Col1_Tab21), R11-C4(@Rd11_Col4_Tab22)
+
+27-019 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-019. Dacă Tab. 2.2, Rând.11 COL.5 ≠ 0, atunci Tab. 2.1, Rând.30 COL.1 trebuie să fie ≠ 0. Valori: R11-C5(@Rd11_Col5_Tab22), R30-C1(@Rd30_Col1_Tab21)
+  Formula 2: Cod eroare: 27-019. Dacă Tab. 2.1, Rând.30 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.5 trebuie să fie ≠ 0. Valori: R30-C1(@Rd30_Col1_Tab21), R11-C5(@Rd11_Col5_Tab22)
+
+27-020 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-020. Dacă Tab. 2.2, Rând.11 COL.6 ≠ 0, atunci Tab. 2.1, Rând.49 COL.1 trebuie să fie ≠ 0. Valori: R11-C6(@Rd11_Col6_Tab22), R49-C1(@Rd49_Col1_Tab21)
+  Formula 2: Cod eroare: 27-020. Dacă Tab. 2.1, Rând.49 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.6 trebuie să fie ≠ 0. Valori: R49-C1(@Rd49_Col1_Tab21), R11-C6(@Rd11_Col6_Tab22)
+
+27-021 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-021. Dacă Tab. 2.2, Rând.11 COL.7 ≠ 0, atunci Tab. 2.1, Rând.37 COL.1 trebuie să fie ≠ 0. Valori: R11-C7(@Rd11_Col7_Tab22), R37-C1(@Rd37_Col1_Tab21)
+  Formula 2: Cod eroare: 27-021. Dacă Tab. 2.1, Rând.37 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R37-C1(@Rd37_Col1_Tab21), R11-C7(@Rd11_Col7_Tab22)
+
+27-022 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-022. Dacă Tab. 2.2, Rând.11 COL.8 ≠ 0, atunci Tab. 2.1, Rând.38 COL.1 sau Rând.45 COL.1 trebuie să fie ≠ 0. Valori: R11-C8(@Rd11_Col8_Tab22), R38-C1(@Rd38_Col1_Tab21), R45-C1(@Rd45_Col1_Tab21)
+  Formula 2: Cod eroare: 27-022. Dacă Tab. 2.1, Rând.38 COL.1 sau Rând.45 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.8 trebuie să fie ≠ 0. Valori: R38-C1(@Rd38_Col1_Tab21), R45-C1(@Rd45_Col1_Tab21), R11-C8(@Rd11_Col8_Tab22)
+
+27-024 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-024. Dacă Tab. 2.2, Rând.11 COL.9 ≠ 0, atunci Tab. 2.1, Rând.50 COL.1 trebuie să fie ≠ 0. Valori: R11-C9(@Rd11_Col9_Tab22), R50-C1(@Rd50_Col1_Tab21)
+  Formula 2: Cod eroare: 27-024. Dacă Tab. 2.1, Rând.50 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.9 trebuie să fie ≠ 0. Valori: R50-C1(@Rd50_Col1_Tab21), R11-C9(@Rd11_Col9_Tab22)
+
+27-025 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-025. Dacă Tab. 2.2, Rând.11 COL.11 ≠ 0, atunci Tab. 2.1, Rând.52 COL.1 trebuie să fie ≠ 0. Valori: R11-C11(@Rd11_Col11_Tab22), R52-C1(@Rd52_Col1_Tab21)
+  Formula 2: Cod eroare: 27-025. Dacă Tab. 2.1, Rând.52 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R52-C1(@Rd52_Col1_Tab21), R11-C11(@Rd11_Col11_Tab22)
+
+27-026 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-026. Dacă Tab. 2.2, Rând.11 COL.12 ≠ 0, atunci Tab. 2.1, Rând.55 COL.1 trebuie să fie ≠ 0. Valori: R11-C12(@Rd11_Col12_Tab22), R55-C1(@Rd55_Col1_Tab21)
+  Formula 2: Cod eroare: 27-026. Dacă Tab. 2.1, Rând.55 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.12 trebuie să fie ≠ 0. Valori: R55-C1(@Rd55_Col1_Tab21), R11-C12(@Rd11_Col12_Tab22)
+
+27-027 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-027. Dacă Tab. 1.1, Rând.4 COL (@colTab11) = @valueTab11 ≠ 0, atunci Tab. 2.2, Rând.10 COL (@colTab22) = @valueTab22 trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-027. Dacă Tab. 2.2, Rând.10 COL (@colTab22) = @valueTab22 ≠ 0, atunci Tab. 1.1, Rând.4 COL (@colTab11) = @valueTab11 trebuie să fie ≠ 0.
+
+27-027.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-027.1. Dacă Tab. 1.1, Rând.4 COL.8 ≠ 0, atunci Tab. 2.2, Rând.10 COL.12 sau COL.9 trebuie să fie ≠ 0. Valori: R4-C8(@Rd4_Col8_Tab11), R10-C12(@Rd10_Col12_Tab22), R10-C9(@Rd10_Col9_Tab22)
+  Formula 2: Cod eroare: 27-027.1. Dacă Tab. 2.2, Rând.10 COL.12 sau COL.9 ≠ 0, atunci Tab. 1.1, Rând.4 COL.8 trebuie să fie ≠ 0. Valori: R10-C12(@Rd10_Col12_Tab22), R10-C9(@Rd10_Col9_Tab22), R4-C8(@Rd4_Col8_Tab11)
+
+27-028 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-028. [@col] - Tab.1.1, rd.5 pe COL (@col), Rînd.(5) COL(1,3,4,5,6,8) = Rînd.(1+2-4)) COL(1,3,4,5,6,8), @CAP1_R5_C <> @result_33_001
+
+27-029 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-029. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R20-C1(@Rd20_Col1)
+  Formula 2: Cod eroare: 27-029. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R7-C1(@Rd7_Col1)
+
+27-029.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-029.1. Dacă Tab. 1.1.1, Rând.3 COL.2 ≠ 0, atunci Tab. 1.1, Rând.7 COL.1 trebuie să fie ≠ 0. (R3C2=@r3, R7C1=@r7)
+  Formula 2: Cod eroare: 27-029.1. Dacă Tab. 1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.3 COL.2 trebuie să fie ≠ 0. (R7C1=@r7, R3C2=@r3)
+
+27-030 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-030. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R21-C1(@Rd21_Col1)
+  Formula 2: Cod eroare: 27-030. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R7-C1(@Rd7_Col1)
+
+27-031 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-031. Dacă Tab. 1.1.1, Rând.7 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R7-C1(@Rd7_Col1), R11-C2(@Rd11_Col2)
+  Formula 2: Cod eroare: 27-031. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.7 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2), R7-C1(@Rd7_Col1)
+
+27-032 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-032. Dacă Tab. 1.1.1, Rând.8 COL.1 ≠ 0, atunci Tab. 2.1, Rând.39 COL.1 trebuie să fie ≠ 0. Valori: R8-C1(@Rd8_Col1), R39-C1(@Rd39_Col1)
+  Formula 2: Cod eroare: 27-032. Dacă Tab. 2.1, Rând.39 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.8 COL.1 trebuie să fie ≠ 0. Valori: R39-C1(@Rd39_Col1), R8-C1(@Rd8_Col1)
+
+27-034 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-034. Dacă Tab. 1.1.1, Rând.9 COL.1 ≠ 0, atunci Tab. 2.1, Rând.46 COL.1 trebuie să fie ≠ 0. Valori: R9-C1(@Rd9_Col1), R46-C1(@Rd46_Col1)
+  Formula 2: Cod eroare: 27-034. Dacă Tab. 2.1, Rând.46 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.9 COL.1 trebuie să fie ≠ 0. Valori: R46-C1(@Rd46_Col1), R9-C1(@Rd9_Col1)
+
+27-036 | ERROR
+  Formula: Cod eroare: 27-036. Tab. 1.1.1, Rând.10 COL.1 trebuie să fie ≥ Tab. 1.1.1, Rând.11 COL.1. Valori: R10-C1(@CAP111_R10_C1), R11-C1(@CAP111_R11_C1)
+
+27-037 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1), R21-C1(@Rd21_Col1)
+  Formula 2: Cod eroare: 27-037. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R11-C1(@Rd11_Col1)
+
+27-039 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-039. Tab. 1.1.1, Rând.10 COL.1 ≠ 0, atunci Tab. 2.2 Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R10-C1(@CAP111_R10_C1), R11-C11(@CAP22_R11_C11)
+
+27-040 | WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-040. Dacă Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 2.1, Rând.54 COL.1 trebuie să fie ≠ 0. Valori: R11-C1(@Rd11_Col1), R54-C1(@Rd54_Col1)
+  Formula 2: Cod eroare: 27-040. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.11 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1), R11-C1(@Rd11_Col1)
+
+27-041 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-041. Tab. 1.1.1, Rând.11 COL.1 ≠ 0, atunci Tab. 2.2 Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R11-C1(@CAP111_R11_C1), R11-C11(@CAP22_R11_C11)
+
+27-042 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-042. Tab. 1.1.1, Rând.12 COL.1 ≠ 0, atunci Tab. 2.1, Rând.53 COL.1 trebuie să fie ≠ 0. Valori: R12-C1(@CAP111_R12_C1), R53-C1(@CAP21_R53_C1)
+
+27-043 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-043. Tab. 1.1.1, Rând.12 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R12-C1(@CAP111_R12_C1), R11-C11(@CAP22_R11_C11)
+
+27-044 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-044. Dacă Tab. 1.1.1, Rând.13 COL.1 ≠ 0, atunci Tab. 2.1, Rând.43 COL.1 trebuie să fie ≠ 0. Valori: R13-C1(@Rd13_Col1), R43-C1(@Rd43_Col1)
+  Formula 2: Cod eroare: 27-044. Dacă Tab. 2.1, Rând.43 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.13 COL.1 trebuie să fie ≠ 0. Valori: R43-C1(@Rd43_Col1), R13-C1(@Rd13_Col1)
+
+27-045 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-045. Tab. 1.1.1, Rând.13 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R13-C1(@CAP111_R13_C1), R11-C7(@CAP22_R11_C7)
+
+27-046 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-046. Tab. 1.1.1, Rând.14 COL.1 ≠ 0, atunci Tab. 2.1, Rând.42 COL.1 trebuie să fie ≠ 0. Valori: R14-C1(@CAP111_R14_C1), R42-C1(@CAP21_R42_C1)
+
+27-047 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-047. Tab. 1.1.1, Rând.14 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.7 trebuie să fie ≠ 0. Valori: R14-C1(@CAP111_R14_C1), R11-C7(@CAP22_R11_C7)
+
+27-048 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-048. Tab. 1.1.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.1, Rând.55 COL.1 trebuie să fie ≠ 0. Valori: R15-C1(@CAP111_R15_C1), R55-C1(@CAP21_R55_C1)
+
+27-049 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-049. Tab. 1.1.1, Rând.15 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.12 trebuie să fie ≠ 0. Valori: R15-C1(@CAP111_R15_C1), R11-C12(@CAP22_R11_C12)
+
+27-050 | WARNING +FILIAL(-F)
+  Formula: Cod eroare: 27-050. Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 2.1, Rând.56 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@CAP111_R17_C1), R56-C1(@CAP21_R56_C1)
+
+27-051 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-051. Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≥ Tab. 1.1.1, Rând.18 COL.1. Valori: R17-C1(@CAP111_R17_C1), R18-C1(@CAP111_R18_C1)
+
+27-052 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-052. Dacă Tab. 1.1.1, Rând.18 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≠ 0. Valori: R18-C1(@Rd18_Col1), R17-C1(@Rd17_Col1)
+  Formula 2: Cod eroare: 27-052. Dacă Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.18 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@Rd17_Col1), R18-C1(@Rd18_Col1)
+
+27-053 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-053. Dacă Tab. 1.1.1, Rând.19 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.17 COL.1 trebuie să fie ≠ 0. Valori: R19-C1(@Rd19_Col1), R17-C1(@Rd17_Col1)
+  Formula 2: Cod eroare: 27-053. Dacă Tab. 1.1.1, Rând.17 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.19 COL.1 trebuie să fie ≠ 0. Valori: R17-C1(@Rd17_Col1), R19-C1(@Rd19_Col1)
+
+27-054 | ERROR/WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-054. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R21-C1(@Rd21_Col1)
+  Formula 2: Cod eroare: 27-054. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R20-C1(@Rd20_Col1)
+
+27-054.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-054.1. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 1.1, Rând.3 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R3-C2(@r3)
+  Formula 2: Cod eroare: 27-054.1. Dacă Tab. 1.1, Rând.3 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R3-C2(@r3), R20-C1(@r20)
+
+27-054.2 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-054.2. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R20-C1(@r20), R21-C1(@r21)
+  Formula 2: Cod eroare: 27-054.2. Dacă Tab. 2.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@r21), R20-C1(@r20)
+
+27-055 | ERROR/WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-055. Dacă Tab. 1.1.1, Rând.20 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.2 trebuie să fie ≠ 0. Valori: R20-C1(@Rd20_Col1), R11-C2(@Rd11_Col2)
+  Formula 2: Cod eroare: 27-055. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@Rd11_Col2), R20-C1(@Rd20_Col1)
+
+27-055.1 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-055.1. Dacă Tab. 2.2, Rând.11 COL.2 ≠ 0, atunci Tab. 1.1.1, Rând.20 COL.1 trebuie să fie ≠ 0. Valori: R11-C2(@r11), R20-C1(@r20)
+
+27-056 | ERROR/WARNING +FILIAL(-F)
+  Formula 1: Cod eroare: 27-056. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.1, Rând.54 COL.1 trebuie să fie ≠ 0. Valori: R21-C1(@Rd21_Col1), R54-C1(@Rd54_Col1)
+  Formula 2: Cod eroare: 27-056. Dacă Tab. 2.1, Rând.54 COL.1 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R54-C1(@Rd54_Col1), R21-C1(@Rd21_Col1)
+
+27-056.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-056.1. Dacă Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 1.1, Rând.3 COL.7 trebuie să fie ≠ 0. Valori: R21-C1(@r21), R3-C7(@r3)
+  Formula 2: Cod eroare: 27-056.1. Dacă Tab. 1.1, Rând.3 COL.7 ≠ 0, atunci Tab. 1.1.1, Rând.21 COL.1 trebuie să fie ≠ 0. Valori: R3-C7(@r3), R21-C1(@r21)
+
+27-057 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 27-057. Tab. 1.1.1, Rând.21 COL.1 ≠ 0, atunci Tab. 2.2, Rând.11 COL.11 trebuie să fie ≠ 0. Valori: R21-C1(@CAP111_R21_C1), R11-C11(@CAP22_R11_C11)
+
+27-058 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-058. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-058. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.
+
+27-058.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-058.1. Dacă Tab. 2.2, Rând.3 COL (@colTab22) ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-058.1. Dacă Tab. 1.1, Rând.1 COL (@colTab11) ≠ 0, atunci Tab. 2.2, Rând.3 COL (@colTab22) trebuie să fie ≠ 0.
+
+27-059 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-059. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 ≠ 0, atunci Tab. 1.1, Rând.3 COL (@colTab11) = @valueTab11_R3 trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-059. Dacă Tab. 1.1, Rând.3 COL (@colTab11) = @valueTab11_R3 ≠ 0, atunci Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 trebuie să fie ≠ 0.
+  Formula 3: Cod eroare: 27-059. Dacă Tab.1.1 rd.2  ≠ 0, atunci Tab.1.1 rd.3  trebuie să fie ≠ 0 și invers. Valoare rd.2: , valoare rd.3: 
+
+27-060 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-060. Dacă Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1 ≠ 0, atunci Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 trebuie să fie ≠ 0.
+  Formula 2: Cod eroare: 27-060. Dacă Tab. 1.1, Rând.2 COL (@colTab11) = @valueTab11_R2 ≠ 0, atunci Tab. 1.1, Rând.1 COL (@colTab11) = @valueTab11_R1 trebuie să fie ≠ 0.
+
+27-073 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-073. Dacă Tab. 2.2, Rând.1 COL.@col ≠ 0, atunci Tab. 2.2, Rând.2 COL.@col trebuie să fie ≠ 0. Valori: R1-C@col(@Rd1_Col), R2-C@col(@Rd2_Col)
+  Formula 2: Cod eroare: 27-073. Dacă Tab. 2.2, Rând.2 COL.@col ≠ 0, atunci Tab. 2.2, Rând.1 COL.@col trebuie să fie ≠ 0. Valori: R2-C@col(@Rd2_Col), R1-C@col(@Rd1_Col)
+
+27-074 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-074. Dacă Tab. 2.2, Rând.6 COL.@col ≠ 0, atunci Tab. 2.2, Rând.7 COL.@col trebuie să fie ≠ 0. Valori: R6-C@col(@Rd6_Col), R7-C@col(@Rd7_Col)
+  Formula 2: Cod eroare: 27-074. Dacă Tab. 2.2, Rând.7 COL.@col ≠ 0, atunci Tab. 2.2, Rând.6 COL.@col trebuie să fie ≠ 0. Valori: R7-C@col(@Rd7_Col), R6-C@col(@Rd6_Col)
+
+27-075 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-075. Dacă Tab. 2.2, Rând.8 COL.@col ≠ 0, atunci Tab. 2.2, Rând.9 COL.@col trebuie să fie ≠ 0. Valori: R8-C@col(@Rd8_Col), R9-C@col(@Rd9_Col)
+  Formula 2: Cod eroare: 27-075. Dacă Tab. 2.2, Rând.9 COL.@col ≠ 0, atunci Tab. 2.2, Rând.8 COL.@col trebuie să fie ≠ 0. Valori: R9-C@col(@Rd9_Col), R8-C@col(@Rd8_Col)
+
+27-075.1 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-075.1. Cap.2.2: Dacă Rd.1 COL.@c ≠ 0, atunci Rd.2 COL.@c trebuie să fie ≠ 0. Valori: R1=@r1, R2=@r2
+  Formula 2: Cod eroare: 27-075.1. Cap.2.2: Dacă Rd.2 COL.@c ≠ 0, atunci Rd.1 COL.@c trebuie să fie ≠ 0. Valori: R2=@r2, R1=@r1
+
+27-075.2 | ERROR +FILIAL(-F)
+  Formula 1: Cod eroare: 27-075.2. Cap.2.2: Dacă Rd.4 COL.@c ≠ 0, atunci Rd.5 COL.@c trebuie să fie ≠ 0. Valori: R4=@r4, R5=@r5
+  Formula 2: Cod eroare: 27-075.2. Cap.2.2: Dacă Rd.5 COL.@c ≠ 0, atunci Rd.4 COL.@c trebuie să fie ≠ 0. Valori: R5=@r5, R4=@r4
+
+33-004 | ERROR +FILIAL(-F)
+  Formula: Cod eroare: 33-004. [@col] - Tab.1.1.1, rd.7 pe COL (@col), COL(1) ≠ 0 atunci Tab 1.1.1, Rînd.(20) COL(1) ≠ 0 și invers , @CAP11_R7_C - @CAP11_R20_C ≠ 0
+
+45-020 | ERROR
+  Formula: Raion: @CAP_NUM_FILIAL - Cod eroare: 45-020.  - Dacă există Nr. [@CAP_NUM_FILIAL], atunci trebuie să existe și cod CUATM.

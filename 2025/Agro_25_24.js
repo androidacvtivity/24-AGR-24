@@ -374,7 +374,7 @@ function validate27_075_2(values) {
 
 webform.validators.agro24_24 = function (v, allowOverpass) {
     var values = Drupal.settings.mywebform.values;
-    //Agro_25_23
+    //Agro_25_25
 
     validate27_075_2(values);
     validate27_075_1(values);
