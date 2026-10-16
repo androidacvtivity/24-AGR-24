@@ -1,17 +1,17 @@
-INSERT INTO USER_BANCU.KATALOG_45_1063 
-(
-             CUIIO,
-             CUIIO_VERS,
-             DENUMIRE,
-             CUATM,
-             CFP,
-             CFOJ,
-             COCM,
-             CAEM2,
-             CAEM,
-             IDNO
- 
- )
+--INSERT INTO USER_BANCU.KATALOG_45_1063 
+--(
+--             CUIIO,
+--             CUIIO_VERS,
+--             DENUMIRE,
+--             CUATM,
+--             CFP,
+--             CFOJ,
+--             COCM,
+--             CAEM2,
+--             CAEM,
+--             IDNO
+-- 
+-- )
 
 
 
