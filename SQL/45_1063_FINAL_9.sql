@@ -1,3 +1,5 @@
+-- Si trebuie de modificat acest sql - de adaugat noua conditie 
+
 SELECT *
 FROM (
     -- Partea 1: Rândurile care satisfac rela?ia substring-string
